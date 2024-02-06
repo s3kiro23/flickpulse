@@ -8,7 +8,7 @@ const Header = () => {
 	return (
 		<header className={styles.header}>
 			<div className={styles.logo}>
-				<p>MyMovieApp</p>
+				<p><Link href={"/"}>MyMovieApp</Link></p>
 			</div>
 			<div className={styles.navigation}>
 				<nav>

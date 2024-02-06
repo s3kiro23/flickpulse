@@ -1,0 +1,35 @@
+@import "variables";
+
+*,
+::after,
+::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: unset;
+}
+
+.error {
+	width: 100%;
+	min-height: 90vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: $secondaryColor;
+	font-family: var(--font-montserrat);
+
+	h1 {
+		margin: 0;
+		font-size: 100px;
+		font-weight: 700;
+	}
+
+	p {
+		font-size: 16px;
+	}
+}

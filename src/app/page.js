@@ -1,10 +1,10 @@
 import styles from "./page.module.css";
-import MediaCard from "@/components/MediaCard/MediaCard";
+import Popular from "@/components/Popular/Popular";
 
 export default function Home() {
 	return (
 		<main className={styles.main}>
-			<MediaCard />
+			<Popular />
 		</main>
 	);
 }

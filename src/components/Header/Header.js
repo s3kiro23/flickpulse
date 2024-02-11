@@ -1,11 +1,14 @@
-import React from "react";
+"use client";
+
 import styles from "./Header.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import MovieSearch from "@/components/movie-search/MovieSearch";
+import { useSelectedLayoutSegment } from "next/navigation";
 
 const Header = () => {
+	const segment = useSelectedLayoutSegment();
 	return (
 		<header className={styles.header}>
 			<div className={styles.logo}>
@@ -16,10 +19,10 @@ const Header = () => {
 			<div className={styles.navigation}>
 				<nav>
 					<ul>
-						<li>
+						<li style={{fontWeight: segment === "series" ? "bold" : "normal"}}>
 							<Link href="/series">Séries</Link>
 						</li>
-						<li>
+						<li style={{fontWeight: segment === "movies" ? "bold" : "normal"}}>
 							<Link href="/movies">Films</Link>
 						</li>
 					</ul>

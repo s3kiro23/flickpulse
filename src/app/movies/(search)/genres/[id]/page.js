@@ -1,10 +1,9 @@
 import React from "react";
+import SearchResults from "../../SearchResults";
 
-const GenreIdPage = ({ params }) => {
+const GenreIdPage = ({ params, searchParams }) => {
 	return (
-		<div>
-			<p>Genre id: {params.id}</p>
-		</div>
+		<SearchResults searchParams={searchParams} genreId={params.id}/>
 	);
 };
 

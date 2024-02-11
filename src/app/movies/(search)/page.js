@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
+import SearchResults from "./SearchResults";
 
-const MoviesPage = () => {
-  return (
-    <div>MoviesPage</div>
-  )
-}
+const MoviesPage = ({ searchParams }) => {
+	return <SearchResults searchParams={searchParams} />;
+};
 
-export default MoviesPage
+export default MoviesPage;

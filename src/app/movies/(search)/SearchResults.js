@@ -10,7 +10,7 @@ const SearchResults = async ({ searchParams, genreId }) => {
 		{ key: "release_date.lte", value: searchParams["release_date.lte"] },
 		{ key: "with_genres", value: genreId },
 	]);
-    const { genres } = await getMovieByPath("/genre/movie/list");
+	const { genres } = await getMovieByPath("/genre/movie/list");
 	return (
 		<div className={styles.results}>
 			{results

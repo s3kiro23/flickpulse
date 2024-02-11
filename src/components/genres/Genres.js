@@ -10,11 +10,9 @@ const Genres = async () => {
 			<h2>Parcourir par genres</h2>
 			<div className={styles.container}>
 				{genres.map((genre) => (
-					<div key={genre.id} className={styles.genre}>
-						<Link href={`/movies/genres/${genre.id}`}>
-							<p>{genre.name}</p>
-						</Link>
-					</div>
+					<Link key={genre.id} href={`/movies/genres/${genre.id}`} className={styles.genre}>
+						<p>{genre.name}</p>
+					</Link>
 				))}
 			</div>
 		</div>

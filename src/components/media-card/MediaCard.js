@@ -5,7 +5,6 @@ import Link from "next/link";
 import Badges from "@/components/badges/Badges";
 
 const MediaCard = ({ media, genres }) => {
-	console.log(genres);
 	return (
 		<div className={styles.card}>
 			<Link href={`/movies/${media.id}`}>

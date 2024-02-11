@@ -10,12 +10,12 @@ const BreadCrumbs = () => {
 	return (
 		<div className={styles.breadcrumbs}>
 			<Link href="/">Accueil</Link>
+			<span> &gt; </span>
 			{segments.map(
 				(segment, index) =>
 					// Vérifier si le segment n'est pas un nombre
 					!Number.isInteger(parseInt(segment)) && (
 						<span key={index}>
-							<span> &gt; </span>
 							{index !== 0 && segments[index - 1] === segment ? (
 								<span>
 									<Link href={segment}>{segment}</Link>
@@ -23,6 +23,7 @@ const BreadCrumbs = () => {
 							) : (
 								<Link href={`/${segments.slice(0, index + 1).join("/")}`}>{segment}</Link>
 							)}
+							{index !== segments.length - 1 && !Number.isInteger(parseInt(segments[index + 1])) && <span> &gt; </span>}
 						</span>
 					)
 			)}

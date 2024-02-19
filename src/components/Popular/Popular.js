@@ -6,6 +6,7 @@ import styles from "./Popular.module.scss";
 const Popular = async () => {
 	const { results } = await getMovieByPath("/movie/popular");
 	const { genres } = await getMovieByPath("/genre/movie/list");
+
 	const popularMovies = results.slice(0, 6);
 	return (
 		<div className={styles.popular}>

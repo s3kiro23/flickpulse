@@ -1,0 +1,125 @@
+@import "variables";
+
+.shimmer:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  //animation: shimmer_2s_infinite;
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+}
+
+.container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  background-color: $grayColor-100;
+  padding: 0.5rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.firstElement {
+  display: flex;
+  padding: 1rem;
+
+  .firstElementStChild {
+    height: 1.25rem;
+    width: 1.25rem;
+    border-radius: 0.5rem;
+  }
+
+  .firstElementSecChild {
+    margin-left: 0.5rem;
+    height: 1.5rem;
+    width: 4rem;
+    border-radius: 0.5rem;
+    background-color: $grayColor-200;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+}
+
+.secondElement  {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border-radius: 1rem;
+  background-color: $whiteColor;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  > div {
+    height: 1.75rem;
+    width: 5rem;
+    border-radius: 0.5rem;
+    background-color: $grayColor-200;
+  }
+}
+
+/* Skeleton styles */
+.card-skeleton {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background-color: #f7fafc;
+  width: 300px; /* Ajustez la largeur selon vos besoins */
+  height: 450px; /* Ajustez la hauteur selon vos besoins */
+}
+
+.image-skeleton {
+  width: 100%;
+  height: 60%;
+  background-color: #edf2f7;
+}
+
+.content-skeleton {
+  padding: 1rem;
+}
+
+.vote-skeleton {
+  width: 40px;
+  height: 20px;
+  background-color: #edf2f7;
+  margin-bottom: 0.5rem;
+}
+
+.title-skeleton {
+  width: 80%;
+  height: 20px;
+  background-color: #edf2f7;
+  margin-bottom: 0.5rem;
+}
+
+.date-skeleton {
+  width: 50%;
+  height: 16px;
+  background-color: #edf2f7;
+  margin-bottom: 0.5rem;
+}
+
+.badges-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.badge-skeleton {
+  width: auto;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  background-color: #edf2f7;
+  color: transparent;
+}
+
+

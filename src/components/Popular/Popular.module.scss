@@ -7,6 +7,7 @@
 .container {
     display: flex;
     gap: 30px;
+    flex-wrap: wrap;
   
     > div {
       width: 200px;

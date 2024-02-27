@@ -13,7 +13,6 @@ const BreadCrumbs = () => {
 			<span> &gt; </span>
 			{segments.map(
 				(segment, index) =>
-					// Vérifier si le segment n'est pas un nombre
 					!Number.isInteger(parseInt(segment)) && (
 						<span key={index}>
 							{index !== 0 && segments[index - 1] === segment ? (

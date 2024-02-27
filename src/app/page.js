@@ -1,5 +1,5 @@
-import Genres from "../components/genres/Genres";
-import Popular from "../components/popular/Popular";
+import Genres from "@/components/genres/Genres";
+import Popular from "@/components/popular/Popular";
 
 // Refresh page data every 24h
 export const revalidate = 86400;

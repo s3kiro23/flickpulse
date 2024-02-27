@@ -1,0 +1,18 @@
+version: '3.5'
+
+services:
+    flickpulse-web:
+        image: 057133510824.dkr.ecr.eu-west-3.amazonaws.com/flickpulse:latest
+        restart: always
+        volumes:
+            - type: bind
+              source: /var/dev_data/flickpulse/log/
+              target: /var/log/flickpulse/
+        ports:
+          - "3000:3000"
+        environment:
+          - NODE_ENV=production
+        deploy:
+          resources:
+            limits:
+              memory: 200M

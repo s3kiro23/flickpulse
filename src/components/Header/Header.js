@@ -13,7 +13,7 @@ const Header = () => {
 		<header className={styles.header}>
 			<div className={styles.logo}>
 				<p>
-					<Link href="/">MyMovieApp</Link>
+					<Link href="/">FlickPulse</Link>
 				</p>
 			</div>
 			<div className={styles.navigation}>

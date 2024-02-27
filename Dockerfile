@@ -4,6 +4,9 @@ FROM node:18-alpine
 # Créer un répertoire de travail
 WORKDIR /app
 
+# Install PM2 globally
+RUN npm install --global pm2
+
 # Copier les dépendances de l'application
 COPY package.json yarn.lock ./
 
@@ -20,4 +23,4 @@ RUN yarn build
 EXPOSE 3000
 
 # Commande pour démarrer l'application
-CMD ["yarn", "start"]
+CMD ["pm2-runtime", "yarn", "--", "start"]

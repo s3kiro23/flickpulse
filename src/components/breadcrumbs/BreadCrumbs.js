@@ -13,7 +13,7 @@ const BreadCrumbs = () => {
 			<span> &gt; </span>
 			{segments.map(
 				(segment, index) =>
-					!Number.isInteger(parseInt(segment)) && (
+					!Number.isInteger(parseInt(segment)) && segment !== "fr" && segment !== "en" && (
 						<span key={index}>
 							{index !== 0 && segments[index - 1] === segment ? (
 								<span>

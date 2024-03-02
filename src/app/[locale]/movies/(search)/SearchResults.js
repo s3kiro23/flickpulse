@@ -3,13 +3,13 @@ import styles from "./SearchResults.module.scss";
 import MediaCard from "@/components/media-card/MediaCard";
 import { getMovieByPath } from "@/utils/movieClient";
 
-const SearchResults = async ({ searchParams, genreId }) => {
+const SearchResults = async ({ searchParams, genreId, locale }) => {
 	const { results } = await getMovieByPath("/discover/movie", [
 		{ key: "sort_by", value: searchParams.sort_by },
 		{ key: "release_date.gte", value: searchParams["release_date.gte"] },
 		{ key: "release_date.lte", value: searchParams["release_date.lte"] },
 		{ key: "with_genres", value: genreId },
-	]);
+	], locale);
 	const { genres } = await getMovieByPath("/genre/movie/list");
 	return (
 		<div className={styles.results}>

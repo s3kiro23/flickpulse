@@ -6,6 +6,7 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import MovieSearch from "@/components/movie-search/MovieSearch";
 import { useSelectedLayoutSegment } from "next/navigation";
+import LanguageSelector from "../language-selector/LanguageSelector";
 
 const Header = () => {
 	const segment = useSelectedLayoutSegment();
@@ -31,6 +32,7 @@ const Header = () => {
 				<div>
 					<FontAwesomeIcon icon={faUser} />
 				</div>
+				<LanguageSelector/>
 			</div>
 		</header>
 	);

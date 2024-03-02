@@ -3,9 +3,9 @@ import React from "react";
 import styles from "./SimilarMovies.module.scss";
 import MediaCard from "../media-card/MediaCard";
 
-const SimilarMovies = async ({ movieId }) => {
-  const { results } = await getMovieByPath(`/movie/${movieId}/similar`);
-  const { genres } = await getMovieByPath("/genre/movie/list");
+const SimilarMovies = async ({ movieId, locale }) => {
+  const { results } = await getMovieByPath(`/movie/${movieId}/similar`, [], locale);
+  const { genres } = await getMovieByPath("/genre/movie/list", [], locale);
 
   return (
     <div className={styles.similar}>

@@ -17,7 +17,7 @@ const SignupForm = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    fetch(`${process.env.NEXTAUTH_URL}/api/signup`, {
+    fetch(`/api/signup`, {
       method: "POST",
       body: JSON.stringify({
         pseudo: formData.get("pseudo"),

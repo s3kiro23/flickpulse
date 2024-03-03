@@ -6,7 +6,7 @@ import MovieSearchResults from "./movie-search-results/MovieSearchResults";
 import styles from "./MovieSearch.module.scss";
 import { useCurrentLanguage } from "@/hooks/useCurrentLanguage";
 
-const MovieSearch = () => {
+const MovieSearch = ({ i18n }) => {
   const [movieResults, setMovieResults] = useState([]);
   const [hasFocus, setHasFocus] = useState(false);
   const currentLanguage = useCurrentLanguage();
@@ -23,7 +23,7 @@ const MovieSearch = () => {
         minLength={2}
         debounceTimeout={500}
         onChange={(e) => updateMovieSearch(e.target.value)}
-        placeholder="Rechercher un titre ..."
+        placeholder={i18n}
         onBlurCapture={() => setHasFocus(false)}
         onFocus={() => setHasFocus(true)}
       />

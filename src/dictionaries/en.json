@@ -8,6 +8,7 @@
   "header": {
     "menu1": "Movies",
     "menu2": "Series",
+    "menu3": "Sign in",
     "search": "Search for title..."
   },
   "card": {
@@ -25,5 +26,25 @@
   "error": {
     "title": "Error",
     "message": "Oops, an error has occurred."
+  },
+  "profile": {
+    "title": "List of your favorite movies",
+    "logout": "Logout"
+  },
+  "searchSidebar": {
+    "title": "All ",
+    "movies": "Movies",
+    "series": "Series",
+    "filter": "Filter",
+    "popularity": "Popularity",
+    "rating": "Note",
+    "countNote": "Number of notes",
+    "movieTitle": "Title",
+    "gold": "Revenues",
+    "date": "Release date",
+    "from": "from",
+    "to": "to",
+    "sortBy": "Sort by",
+    "search": "Search"
   }
 }

@@ -14,6 +14,7 @@ const SearchResults = async ({ searchParams, genreId, locale }) => {
     locale,
   );
   const { genres } = await getMovieByPath("/genre/movie/list", [], locale);
+  
   return (
     <div className={styles.results}>
       {results

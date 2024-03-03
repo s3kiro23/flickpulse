@@ -14,7 +14,7 @@ const Genres = async ({ locale }) => {
         {genres.map((genre) => (
           <Link
             key={genre.id}
-            href={`/movies/genres/${genre.id}`}
+            href={`/${locale}/movies/genres/${genre.id}`}
             className={styles.genre}
           >
             <p>{genre.name}</p>

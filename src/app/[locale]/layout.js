@@ -3,22 +3,23 @@ import Header from "@/components/header/Header";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { roboto, montserrat } from "@/font";
 import BreadCrumbs from "@/components/breadcrumbs/BreadCrumbs";
-import styles from "./page.module.css";
-import { availableLocales } from "@/utils/i18n";
+import AuthProvider from "@/components/auth-provider/AuthProvider";
+import { getDictionary } from "@/utils/dictionaries";
 
-export function generateStaticParams() {
-  return availableLocales.map((locale) => ({ locale }));
-}
 
-export default function RootLayout({ children, params: { locale } }) {
+export default async function RootLayout({ children, params: { locale } }) {
+  const i18n = await getDictionary(locale);
+
   return (
     <html lang="en">
       <body className={`${roboto.variable} ${montserrat.variable}`}>
-        <Header locale={locale} />
-        <main className={styles.main}>
-          <BreadCrumbs locale={locale} />
-          {children}
-        </main>
+        <AuthProvider>
+          <Header locale={locale} i18n={i18n.header}/>
+          <main>
+            {/* <BreadCrumbs locale={locale} /> */}
+            {children}
+          </main>
+        </AuthProvider>
       </body>
     </html>
   );

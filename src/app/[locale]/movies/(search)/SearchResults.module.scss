@@ -8,3 +8,11 @@
         width: 200px;
     }
 }
+
+@media (max-width: 768px) {
+    .results {
+      margin-top: 20px;
+      justify-content: center;
+    }
+  }
+  

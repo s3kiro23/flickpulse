@@ -1,10 +1,11 @@
 @import "variables";
 
 .container {
-	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+	box-shadow: 0px 2px 8px rgba(141, 40, 40, 0.1);
+	background-color: #797979;
     
 	h2 {
-		color: black;
+		color: $whiteColor;
 		font-size: 18px;
 		padding: 10px 15px;
 		margin: 0;
@@ -12,6 +13,7 @@
 	}
 
 	h3 {
+		color: $whiteColor;
 		font-weight: 300;
 		font-family: var(--font-montserrat);
 		margin-top: 15px;
@@ -23,7 +25,7 @@
 	}
 
 	.date {
-		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
 		> div {
 			display: flex;
@@ -34,7 +36,7 @@
 			p {
 				margin: 0;
 				margin-right: 10px;
-				color: #4d4d4d;
+				color: #ffffff;
 			}
 
 			input {
@@ -56,13 +58,15 @@
 	input[type="submit"] {
 		width: 100%;
 		border: none;
-		background-color: rgba(0, 0, 0, 0.05);
+		background-color: rgba(255, 255, 255, 0.76);
+		color: $secondaryColor;
+		font-weight: 700;
 		padding: 10px;
 		cursor: pointer;
 		transition: background-color 0.2s, color 0.2s;
 
 		&:hover {
-			background-color: $primaryColor;
+			background-color: $secondaryColor;
 			color: $whiteColor;
 		}
 	}

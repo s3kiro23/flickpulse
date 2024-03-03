@@ -58,7 +58,7 @@
           font-size: 20px;
         }
       }
-      .production{
+      .production {
         font-size: 13px;
       }
 
@@ -81,8 +81,26 @@
 
       .credits {
         margin-top: auto;
+        flex-wrap: wrap;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .content {
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px 0;
+
+      img{
+        margin: auto;
       }
 
+      .description {
+        flex: 1;
+        text-align: center;
+        padding: 30px;
+      }
     }
   }
 }

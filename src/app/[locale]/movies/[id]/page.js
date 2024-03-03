@@ -13,9 +13,10 @@ const MovieIdPage = async ({ params: { id, locale } }) => {
   if (!movie.original_title) {
     return notFound();
   }
+  
   return (
     <div>
-      <MovieDetails movie={movie} locale={locale} />
+      <MovieDetails movie={movie}/>
       <Suspense fallback={<p>Chargement...</p>}>
         <SimilarMovies movieId={movie.id} locale={locale} />
       </Suspense>

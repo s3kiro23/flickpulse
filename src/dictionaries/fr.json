@@ -8,6 +8,7 @@
   "header": {
     "menu1": "Films",
     "menu2": "Séries",
+    "menu3": "Inscription",
     "search": "Rechercher un titre..."
   },
   "card": {
@@ -25,5 +26,25 @@
   "error": {
     "title": "Erreur",
     "message": "Oups, une erreur c&apos;est produite."
+  },
+  "profile": {
+    "title": "Liste de vos films préférés",
+    "logout": "Déconnexion"
+  },
+  "searchSidebar": {
+    "title": "Tous les ",
+    "movies": "Films",
+    "series": "Séries",
+    "filter": "Filtrer",
+    "date": "Date de sortie",
+    "from": "De",
+    "to": "au",
+    "sortBy": "Trier par",
+    "popularity": "Popularité",
+    "rating": "Note",
+    "countNote": "Nombre de note",
+    "movieTitle": "Titre",
+    "gold": "Revenues",
+    "search": "Rechercher"
   }
 }

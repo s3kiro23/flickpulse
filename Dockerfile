@@ -16,6 +16,8 @@ RUN npm install --production
 # Copier le reste des fichiers de l'application
 COPY . .
 
+RUN npm prisma generate
+
 # Construction de l'application
 RUN npm run build
 

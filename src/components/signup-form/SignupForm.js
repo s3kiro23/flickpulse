@@ -3,6 +3,7 @@ import { signIn, useSession } from "next-auth/react";
 import styles from "./SignupForm.module.scss";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { NextResponse } from "next/server";
 
 const SignupForm = () => {
   const { status } = useSession();
@@ -23,7 +24,9 @@ const SignupForm = () => {
         pseudo: formData.get("pseudo"),
         password: formData.get("password"),
       }),
-    }).then((response) => {
+    })
+    .catch((error) => NextResponse.json({ error }))
+    .then((response) => {
       if (response.ok) {
         signIn();
       }

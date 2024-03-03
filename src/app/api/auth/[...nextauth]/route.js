@@ -14,7 +14,7 @@ const handler = NextAuth({
         },
       },
       async authorize(credentials, request) {
-        const response = await fetch("http://localhost:3000/api/login", {
+        const response = await fetch("https://flickpulse.dev-custom.net/api/login", {
           method: "POST",
           body: JSON.stringify({
             pseudo: credentials?.pseudo,

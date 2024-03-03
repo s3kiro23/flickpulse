@@ -3,8 +3,8 @@ import Image from "next/image";
 import styles from "./MovieCredits.module.scss";
 import { getMovieByPath } from "@/utils/movieClient";
 
-const MovieCredits = async ({ movieId, locale }) => {
-  const { cast } = await getMovieByPath(`/movie/${movieId}/credits`, [], locale);
+const MovieCredits = async ({ movieId }) => {
+  const { cast } = await getMovieByPath(`/movie/${movieId}/credits`);
   return (
     <div className={styles.credits}>
       {cast.slice(0, 4).map((person) => (

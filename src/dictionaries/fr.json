@@ -1,0 +1,29 @@
+{
+  "popular": {
+    "title": "Les plus populaires"
+  },
+  "genres": {
+    "title": "Parcourir par genre"
+  },
+  "header": {
+    "menu1": "Films",
+    "menu2": "Séries",
+    "search": "Rechercher un titre..."
+  },
+  "card": {
+    "date": "Le"
+  },
+  "breadcrumbs": {
+    "home": "Accueil",
+    "movies": "films",
+    "series": "series"
+  },
+  "notFound": {
+    "message": "Oups, la page que vous demandez n&apos;existe pas.",
+    "link": "Retour à la page d&apos;accueil"
+  },
+  "error": {
+    "title": "Erreur",
+    "message": "Oups, une erreur c&apos;est produite."
+  }
+}

@@ -22,6 +22,7 @@ const SimilarMovies = async ({ movieId, locale }) => {
                   media={movie}
                   key={movie.id}
                   genres={movie.genre_ids}
+                  locale={locale}
                 />
               )
             ),

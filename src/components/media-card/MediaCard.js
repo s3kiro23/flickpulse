@@ -3,11 +3,13 @@ import Image from "next/image";
 import styles from "./MediaCard.module.scss";
 import Link from "next/link";
 import Badges from "@/components/badges/Badges";
+import { getDictionary } from "@/utils/dictionaries";
 
-const MediaCard = ({ media, genres }) => {
+const MediaCard = async ({ media, genres, locale }) => {
+	const i18n = await getDictionary(locale);
 	return (
 		<div className={styles.card}>
-			<Link href={`/movies/${media.id}`}>
+			<Link href={`/${locale}/movies/${media.id}`}>
 				<div className={styles.image}>
 					<Image
 						src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_BASE_PATH}w500/${media.poster_path}`}
@@ -19,7 +21,7 @@ const MediaCard = ({ media, genres }) => {
 				<div className={styles.content}>
 					<p className={styles.vote}>{media.vote_average}</p>
 					<h3>{media.title}</h3>
-					<p>Le {new Date(media.release_date).toLocaleDateString("fr-FR")}</p>
+					<p>{i18n.card.date} {new Date(media.release_date).toLocaleDateString(locale)}</p>
 				</div>
 				<Badges genres={genres} />
 			</Link>

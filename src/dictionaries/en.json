@@ -1,0 +1,29 @@
+{
+  "popular": {
+    "title": "Most Popular"
+  },
+  "genres": {
+    "title": "Browse by genre"
+  },
+  "header": {
+    "menu1": "Movies",
+    "menu2": "Series",
+    "search": "Search for title..."
+  },
+  "card": {
+    "date": ""
+  },
+  "breadcrumbs": {
+    "home": "Accueil",
+    "movies": "films",
+    "series": "series"
+  },
+  "notFound": {
+    "message": "Oops, the page you are requesting does not exist.",
+    "link": "Back to home page"
+  },
+  "error": {
+    "title": "Error",
+    "message": "Oops, an error has occurred."
+  }
+}

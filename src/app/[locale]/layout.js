@@ -7,16 +7,16 @@ import styles from "./page.module.css";
 import { availableLocales } from "@/utils/i18n";
 
 export function generateStaticParams() {
-  return availableLocales.map((locale) => ({ locale, }));
+  return availableLocales.map((locale) => ({ locale }));
 }
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children, params: { locale } }) {
   return (
     <html lang="en">
       <body className={`${roboto.variable} ${montserrat.variable}`}>
-        <Header />
+        <Header locale={locale} />
         <main className={styles.main}>
-          <BreadCrumbs />
+          <BreadCrumbs locale={locale} />
           {children}
         </main>
       </body>

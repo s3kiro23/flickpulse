@@ -13,8 +13,11 @@ export function generateStaticParams() {
 export default function Home({ params: { locale } }) {
   return (
     <div className={styles.main}>
-      <Popular locale={locale} />
-      <Genres locale={locale} />
+      <Popular locale={locale} type="movie"/>
+      <Genres locale={locale} type="movie"/>
+
+      <Popular locale={locale} type="tv"/>
+      <Genres locale={locale} type="tv"/>
     </div>
   );
 }

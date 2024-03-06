@@ -1,9 +1,11 @@
 {
   "popular": {
-    "title": "Most Popular"
+    "tv": "Most Popular Series",
+    "movie": "Most Popular Movies"
   },
-  "genres": {
-    "title": "Browse by genre"
+  "genre": {
+    "tv": "Browse series by genre",
+    "movie": "Browse movies by genre"
   },
   "header": {
     "menu1": "Movies",

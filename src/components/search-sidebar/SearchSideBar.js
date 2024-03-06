@@ -25,7 +25,6 @@ const SearchSideBar = ({ genres, i18n, locale }) => {
 	};
 
 	const title = getSidebarTitle();
-	console.log(pathname)
 	return (
 		<div className={styles.sidebar}>
 			<h1>

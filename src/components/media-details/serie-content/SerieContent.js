@@ -3,7 +3,6 @@ import MediaCredits from "../../media-credits/MediaCredits";
 import styles from "./SerieContent.module.scss";
 
 const SerieContent = ({ media, locale, type }) => {
-    console.log(media)
   return (
     <div className={styles.description}>
       <h1>

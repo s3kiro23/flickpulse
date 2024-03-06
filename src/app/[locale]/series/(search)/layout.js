@@ -3,8 +3,8 @@ import styles from "./layout.module.scss";
 import { getMediaByPath } from "@/utils/mediaClient";
 import { getDictionary } from "@/utils/dictionaries";
 
-const MovieSearchLayout = async ({ children, params: { locale } }) => {
-  const { genres } = await getMediaByPath("/genre/movie/list", [], locale);
+const SerieSearchLayout = async ({ children, params: { locale } }) => {
+  const { genres } = await getMediaByPath("/genre/tv/list", [], locale);
   const i18n = await getDictionary(locale);
 
   return (
@@ -19,4 +19,4 @@ const MovieSearchLayout = async ({ children, params: { locale } }) => {
   );
 };
 
-export default MovieSearchLayout;
+export default SerieSearchLayout;

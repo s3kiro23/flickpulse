@@ -32,17 +32,18 @@
     "logout": "Logout"
   },
   "searchSidebar": {
-    "title": "All ",
+    "mTitle": "All ",
+    "sTitle": "All ",
     "movies": "Movies",
     "series": "Series",
     "filter": "Filter",
     "popularity": "Popularity",
     "rating": "Note",
     "countNote": "Number of notes",
-    "movieTitle": "Title",
     "gold": "Revenues",
     "date": "Release date",
     "from": "from",
+    "movieTitle": "Title",
     "to": "to",
     "sortBy": "Sort by",
     "search": "Search"

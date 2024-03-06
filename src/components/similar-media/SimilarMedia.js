@@ -1,11 +1,15 @@
-import { getMovieByPath } from "@/utils/movieClient";
+import { getMediaByPath } from "@/utils/mediaClient";
 import React from "react";
-import styles from "./SimilarMovies.module.scss";
+import styles from "./SimilarMedia.module.scss";
 import MediaCard from "../media-card/MediaCard";
 
-const SimilarMovies = async ({ movieId, locale }) => {
-  const { results } = await getMovieByPath(`/movie/${movieId}/similar`, [], locale);
-  const { genres } = await getMovieByPath("/genre/movie/list", [], locale);
+const SimilarMedia = async ({ movieId, locale, type }) => {
+  const { results } = await getMediaByPath(
+    `/${type}/${movieId}/similar`,
+    [],
+    locale,
+  );
+  const { genres } = await getMediaByPath(`/genre/${type}/list`, [], locale);
 
   return (
     <div className={styles.similar}>
@@ -23,6 +27,7 @@ const SimilarMovies = async ({ movieId, locale }) => {
                   key={movie.id}
                   genres={movie.genre_ids}
                   locale={locale}
+                  type={type}
                 />
               )
             ),
@@ -32,4 +37,4 @@ const SimilarMovies = async ({ movieId, locale }) => {
   );
 };
 
-export default SimilarMovies;
+export default SimilarMedia;

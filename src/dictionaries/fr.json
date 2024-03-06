@@ -32,7 +32,8 @@
     "logout": "Déconnexion"
   },
   "searchSidebar": {
-    "title": "Tous les ",
+    "mTitle": "Tous les ",
+    "sTitle": "Toutes les ",
     "movies": "Films",
     "series": "Séries",
     "filter": "Filtrer",

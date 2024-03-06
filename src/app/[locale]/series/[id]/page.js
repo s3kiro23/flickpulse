@@ -7,21 +7,21 @@ import React, { Suspense } from "react";
 export const dynamic = "force-static";
 export const revalidate = 3600;
 
-const MovieIdPage = async ({ params: { id, locale } }) => {
-  const movie = await getMediaByPath(`/movie/${id}`, [], locale);
+const SerieIdPage = async ({ params: { id, locale } }) => {
+  const serie = await getMediaByPath(`/tv/${id}`, [], locale);
 
-  if (!movie.original_title) {
+  if (!serie.original_title) {
     return notFound();
   }
 
   return (
     <div>
-      <MovieDetails movie={movie} />
+      <MovieDetails serie={serie} />
       <Suspense fallback={<p>Chargement...</p>}>
-        <SimilarMedia movieId={movie.id} locale={locale} type="movie" />
+        <SimilarMedia movieId={serie.id} locale={locale} />
       </Suspense>
     </div>
   );
 };
 
-export default MovieIdPage;
+export default SerieIdPage;

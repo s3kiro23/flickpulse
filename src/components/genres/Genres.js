@@ -1,11 +1,11 @@
-import { getMovieByPath } from "@/utils/movieClient";
+import { getMediaByPath } from "@/utils/mediaClient";
 import React from "react";
 import Link from "next/link";
 import styles from "./Genres.module.scss";
 import { getDictionary } from "@/utils/dictionaries";
 
 const Genres = async ({ locale }) => {
-  const { genres } = await getMovieByPath("/genre/movie/list", [], locale);
+  const { genres } = await getMediaByPath("/genre/movie/list", [], locale);
   const i18n = await getDictionary(locale);
   return (
     <div>

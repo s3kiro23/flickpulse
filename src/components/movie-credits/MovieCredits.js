@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image";
 import styles from "./MovieCredits.module.scss";
-import { getMovieByPath } from "@/utils/movieClient";
+import { getMediaByPath } from "@/utils/mediaClient";
 
 const MovieCredits = async ({ movieId }) => {
-  const { cast } = await getMovieByPath(`/movie/${movieId}/credits`);
+  const { cast } = await getMediaByPath(`/movie/${movieId}/credits`);
   return (
     <div className={styles.credits}>
       {cast.slice(0, 4).map((person) => (

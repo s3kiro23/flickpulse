@@ -1,4 +1,4 @@
-import { getMovieByPath } from "@/utils/movieClient";
+import { getMediaByPath } from "@/utils/mediaClient";
 import React from "react";
 import MediaCard from "@/components/media-card/MediaCard";
 import styles from "./Popular.module.scss";
@@ -6,8 +6,8 @@ import { getDictionary } from "@/utils/dictionaries";
 
 const Popular = async ({ locale }) => {
   const i18n = await getDictionary(locale);
-  const { results } = await getMovieByPath("/movie/popular", [], locale);
-  const { genres } = await getMovieByPath("/genre/movie/list", [], locale);
+  const { results } = await getMediaByPath("/movie/popular", [], locale);
+  const { genres } = await getMediaByPath("/genre/movie/list", [], locale);
 
   const popularMovies = results.slice(0, 6);
   return (
@@ -25,6 +25,7 @@ const Popular = async ({ locale }) => {
                 media={movie}
                 genres={movie.genre_ids}
                 locale={locale}
+                type="movie"
               />
             )
           ),

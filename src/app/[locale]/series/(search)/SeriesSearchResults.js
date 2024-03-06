@@ -1,10 +1,10 @@
-import styles from "./SearchResults.module.scss";
+import styles from "./SeriesSearchResults.module.scss";
 import MediaCard from "@/components/media-card/MediaCard";
-import { getMovieByPath } from "@/utils/movieClient";
+import { getMediaByPath } from "@/utils/mediaClient";
 
 const SearchResults = async ({ searchParams, genreId, locale }) => {
-  const { results } = await getMovieByPath(
-    "/discover/movie",
+  const { results } = await getMediaByPath(
+    "/discover/tv",
     [
       { key: "sort_by", value: searchParams.sort_by },
       { key: "release_date.gte", value: searchParams["release_date.gte"] },
@@ -13,23 +13,24 @@ const SearchResults = async ({ searchParams, genreId, locale }) => {
     ],
     locale,
   );
-  const { genres } = await getMovieByPath("/genre/movie/list", [], locale);
-  
+  const { genres } = await getMediaByPath("/genre/tv/list", [], locale);
+
   return (
     <div className={styles.results}>
       {results
-        .filter((movie) => movie.poster_path)
+        .filter((serie) => serie.poster_path)
         .map(
-          (movie) => (
-            (movie.genre_ids = genres
-              .filter((genre) => movie.genre_ids.includes(genre.id))
+          (serie) => (
+            (serie.genre_ids = genres
+              .filter((genre) => serie.genre_ids.includes(genre.id))
               .map((genre) => genre.name)),
             (
               <MediaCard
-                key={movie.id}
-                media={movie}
-                genres={movie.genre_ids}
+                key={serie.id}
+                media={serie}
+                genres={serie.genre_ids}
                 locale={locale}
+                type="serie"
               />
             )
           ),

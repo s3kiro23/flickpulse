@@ -6,11 +6,11 @@ import Badges from "@/components/badges/Badges";
 import { getDictionary } from "@/utils/dictionaries";
 import Like from "./like/Like";
 
-const MediaCard = async ({ media, genres, locale }) => {
+const MediaCard = async ({ media, genres, locale, type }) => {
 	const i18n = await getDictionary(locale);
 	return (
 		<div className={styles.card}>
-			<Link href={`/${locale}/movies/${media.id}`}>
+			<Link href={`/${locale}/${type}s/${media.id}`}>
 				<div className={styles.image}>
 					<Like mediaId={media.id} />
 					<Image

@@ -1,9 +1,9 @@
 import React from "react";
-import SearchResults from "../../SearchResults";
+import MoviesSearchResults from "../../MoviesSearchResults";
 
 const GenreIdPage = ({ params: { id, locale }, searchParams }) => {
   return (
-    <SearchResults searchParams={searchParams} genreId={id} locale={locale} />
+    <MoviesSearchResults searchParams={searchParams} genreId={id} locale={locale} />
   );
 };
 

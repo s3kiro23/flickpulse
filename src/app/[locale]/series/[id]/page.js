@@ -1,4 +1,4 @@
-import MovieDetails from "@/components/movie-details/MovieDetails";
+import MediaDetails from "@/components/media-details/MediaDetails";
 import SimilarMedia from "@/components/similar-media/SimilarMedia";
 import { getMediaByPath } from "@/utils/mediaClient";
 import { notFound } from "next/navigation";
@@ -10,15 +10,15 @@ export const revalidate = 3600;
 const SerieIdPage = async ({ params: { id, locale } }) => {
   const serie = await getMediaByPath(`/tv/${id}`, [], locale);
 
-  if (!serie.original_title) {
+  if (!serie.original_name) {
     return notFound();
   }
 
   return (
     <div>
-      <MovieDetails serie={serie} />
+      <MediaDetails media={serie} type="tv"/>
       <Suspense fallback={<p>Chargement...</p>}>
-        <SimilarMedia movieId={serie.id} locale={locale} />
+        <SimilarMedia mediaId={serie.id} locale={locale} type="tv"/>
       </Suspense>
     </div>
   );

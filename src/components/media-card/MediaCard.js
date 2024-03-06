@@ -8,6 +8,7 @@ import Like from "./like/Like";
 
 const MediaCard = async ({ media, genres, locale, type }) => {
 	const i18n = await getDictionary(locale);
+	if (type === "tv") type = "serie";
 	return (
 		<div className={styles.card}>
 			<Link href={`/${locale}/${type}s/${media.id}`}>

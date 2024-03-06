@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image";
-import styles from "./MovieCredits.module.scss";
+import styles from "./MediaCredits.module.scss";
 import { getMediaByPath } from "@/utils/mediaClient";
 
-const MovieCredits = async ({ movieId }) => {
-  const { cast } = await getMediaByPath(`/movie/${movieId}/credits`);
+const MediaCredits = async ({ mediaId, type }) => {
+  const { cast } = await getMediaByPath(`/${type}/${mediaId}/credits`);
   return (
     <div className={styles.credits}>
       {cast.slice(0, 4).map((person) => (
@@ -22,4 +22,4 @@ const MovieCredits = async ({ movieId }) => {
   );
 };
 
-export default MovieCredits;
+export default MediaCredits;

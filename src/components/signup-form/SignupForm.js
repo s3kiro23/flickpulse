@@ -21,7 +21,7 @@ const SignupForm = () => {
     fetch(`/api/signup`, {
       method: "POST",
       body: JSON.stringify({
-        pseudo: formData.get("pseudo"),
+        email: formData.get("email"),
         password: formData.get("password"),
       }),
     })
@@ -36,7 +36,7 @@ const SignupForm = () => {
     <div className={styles.signupForm}>
       <form onSubmit={handleFormSubmit}>
         <h1>Inscription</h1>
-        <input type="text" name="pseudo" placeholder="Pseudo" />
+        <input type="text" name="email" placeholder="Pseudo" />
         <input type="password" name="password" placeholder="*******" />
         <input type="submit" value="S'inscrire" />
       </form>

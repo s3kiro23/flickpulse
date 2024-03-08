@@ -12,19 +12,23 @@ const ProfilePage = async ({ params: { locale } }) => {
 
   const { user: userSession } = await getServerSession();
 
-  const { movieLikes } = await prisma.user.findFirst({
+  const { mediaLikes } = await prisma.user.findFirst({
     where: {
-      pseudo: userSession.pseudo,
+      email: userSession.email,
     },
     include: {
-      movieLikes: true,
+      mediaLikes: true,
     },
   });
+
+
   const movies = await getHydratedMedia(
-    movieLikes.map((movie) => movie.movieId),
+    mediaLikes.map((media) => media.mediaId),
     "movie",
     locale,
   );
+
+  console.log(movies);
 
   return (
     <div className={styles.profile}>
@@ -42,7 +46,7 @@ const ProfilePage = async ({ params: { locale } }) => {
                 media={movie}
                 locale={locale}
                 genres={movie.genres}
-                type="movies"
+                type="movie"
               />
             )
           ),

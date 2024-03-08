@@ -6,18 +6,18 @@ const handler = NextAuth({
     CredentialsProvider({
       name: "FlickPulse",
       credentials: {
-        pseudo: { label: "Pseudo", type: "text", placeholder: "Votre pseudo" },
+        email: { label: "Pseudo", type: "text", placeholder: "Votre Pseudo" },
         password: {
           label: "Password",
           type: "password",
           placeholder: "Votre mot de passe",
         },
       },
-      async authorize(credentials, request) {
+      async authorize(credentials) {
         const response = await fetch(`${process.env.NEXTAUTH_URL}/api/login`, {
           method: "POST",
           body: JSON.stringify({
-            pseudo: credentials?.pseudo,
+            email: credentials?.email,
             password: credentials?.password,
           }),
         });
@@ -28,14 +28,6 @@ const handler = NextAuth({
       },
     }),
   ],
-  callbacks: {
-    async jwt(token, user) {
-      if (user) {
-        token.pseudo = user.pseudo;
-      }
-      return token;
-    },
-  },
 });
 
 export { handler as GET, handler as POST };

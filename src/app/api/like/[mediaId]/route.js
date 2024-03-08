@@ -9,10 +9,12 @@ export async function POST(request, { params: { mediaId } }) {
     return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
   }
 
+  console.log(token)
+
   try {
     const user = await prisma.user.update({
       where: {
-        pseudo: token.token.user.pseudo,
+        email: token.email,
       },
       data: {
         mediaLikes: {
@@ -29,7 +31,9 @@ export async function POST(request, { params: { mediaId } }) {
   } catch (error) {
     if (error) {
       return NextResponse.json(
-        { message: "Le couple userId / mediaId existe déjà" },
+        {
+          message: `Le couple userId / mediaId existe déjà, message: ${error}`,
+        },
         { status: 400 },
       );
     }

@@ -43,7 +43,7 @@ const Form = ({ i18n, locale }) => {
           <option value="popularity.desc">{i18n.popularity}</option>
           <option value="vote_average.desc">{i18n.rating}</option>
           <option value="cote_count.desc">{i18n.countNote}</option>
-          <option value="title.desc">{i18n.title}</option>
+          <option value="title.desc">{i18n.movieTitle}</option>
           <option value="revnue.desc">{i18n.gold}</option>
         </select>
       </div>

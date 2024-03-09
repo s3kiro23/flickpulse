@@ -8,11 +8,17 @@
 
 	.genre {
 		padding: 10px 0;
-		background-color: $primaryColor;
-		color: $whiteColor;
+		background-color: $greyColor;
+		color: $secondaryColor;
 		font-weight: bold;
 		flex: 0 0 calc(20% - 20px);
 		text-align: center;
+		transition: background-color 0.2s, color 0.2s;
+
+		&:hover {
+			background-color: $secondaryColor;
+			color: $whiteColor;
+		}
 
 		p {
 			margin: 0;

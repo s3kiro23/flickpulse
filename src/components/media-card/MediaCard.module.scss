@@ -49,8 +49,9 @@
       height: 35px;
       z-index: 2;
       margin: 0;
-      border: 1px solid $primaryColor;
+      border: 1px solid $secondaryColor;
       background-color: $whiteColor;
+      font-weight: bold;
     }
 
     h3 {

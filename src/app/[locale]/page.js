@@ -16,6 +16,8 @@ export default function Home({ params: { locale } }) {
       <Popular locale={locale} type="movie"/>
       <Genres locale={locale} type="movie"/>
 
+      <span className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">Badge</span>
+
       <Popular locale={locale} type="tv"/>
       <Genres locale={locale} type="tv"/>
     </div>

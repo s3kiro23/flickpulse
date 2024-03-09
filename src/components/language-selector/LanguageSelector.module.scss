@@ -28,10 +28,22 @@
     transform: scaleY(0);
     transform-origin: top;
     transition: all 0.3s ease-in-out;
+
+    li {
+      &:hover {
+        color: $secondaryColor;
+        transition: color 0.3s;
+      }
+    }
   }
 
   p {
     cursor: pointer;
+
+    &:hover {
+      color: $secondaryColor;
+      transition: color 0.3s;
+    }
   }
 
   svg {

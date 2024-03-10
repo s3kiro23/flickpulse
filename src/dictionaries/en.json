@@ -11,7 +11,9 @@
     "menu1": "Movies",
     "menu2": "Series",
     "menu3": "Sign in",
-    "search": "Search for title..."
+    "search": "Search for title...",
+    "logout": "Logout",
+    "profile": "Profile"
   },
   "card": {
     "date": ""
@@ -30,7 +32,8 @@
     "message": "Oops, an error has occurred."
   },
   "profile": {
-    "title": "Your favorite movies",
+    "moviesTitle": "Your favorite movies",
+    "seriesTitle": "Your favorite series",
     "logout": "Logout"
   },
   "searchSidebar": {

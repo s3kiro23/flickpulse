@@ -13,7 +13,7 @@ const MediaCard = async ({ media, genres, locale, type }) => {
     <div className={styles.card}>
       <Link href={`/${locale}/${type}s/${media.id}`}>
         <div className={styles.image}>
-          <Like mediaId={media.id} />
+          <Like mediaId={media.id} type={type} />
           <Image
             src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_BASE_PATH}w500/${media.poster_path}`}
             alt={type === "serie" ? media.original_name : media.title}
@@ -23,15 +23,11 @@ const MediaCard = async ({ media, genres, locale, type }) => {
         </div>
         <div className={styles.content}>
           <p className={styles.vote}>{media.vote_average}</p>
-		  {type === "serie" ? (
-            <h3>{media.name}</h3>
-          ) : (
-            <h3>{media.title}</h3>
-          )}
+          {type === "serie" ? <h3>{media.name}</h3> : <h3>{media.title}</h3>}
           {type === "serie" ? (
             <p>
-              {i18n.card.date}{" "} 
-			  {new Date(media.first_air_date).toLocaleDateString(locale)}
+              {i18n.card.date}{" "}
+              {new Date(media.first_air_date).toLocaleDateString(locale)}
             </p>
           ) : (
             <p>

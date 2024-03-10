@@ -21,37 +21,74 @@ const ProfilePage = async ({ params: { locale } }) => {
     },
   });
 
+  console.log(mediaLikes);
 
-  const movies = await getHydratedMedia(
-    mediaLikes.map((media) => media.mediaId),
-    "movie",
+  const medias = await getHydratedMedia(
+    mediaLikes.map((media) => media),
     locale,
   );
 
-  console.log(movies);
+  console.log(medias);
 
   return (
     <div className={styles.profile}>
-      <div className={styles.head}>
-        <h1>{i18n.profile.title}</h1>
-        <LogoutButton i18n={i18n.profile.logout} />
-      </div>
-      <div className={styles.list}>
-        {movies.map(
-          (movie) => (
-            (movie.genres = movie.genres.map((genre) => genre.name)),
-            (
-              <MediaCard
-                key={movie.id}
-                media={movie}
-                locale={locale}
-                genres={movie.genres}
-                type="movie"
-              />
-            )
-          ),
+      <div className={styles.section}>
+        <h1>{i18n.profile.moviesTitle}</h1>
+        {medias.filter((media) => !media.last_air_date).length == 0 ? (
+          <div className={styles.list}>
+            {" "}
+            Aucune données n&apos;est disponible
+          </div>
+        ) : (
+          <div className={styles.list}>
+            {medias
+              .filter((media) => !media.last_air_date)
+              .map(
+                (media) => (
+                  (media.genres = media.genres.map((genre) => genre.name)),
+                  (
+                    <MediaCard
+                      key={media.id}
+                      media={media}
+                      locale={locale}
+                      genres={media.genres}
+                      type="movie"
+                    />
+                  )
+                ),
+              )}
+          </div>
         )}
       </div>
+      <div className={styles.section}>
+        <h1>{i18n.profile.seriesTitle}</h1>
+        {medias.filter((media) => media.last_air_date).length == 0 ? (
+          <div className={styles.list}>
+            {" "}
+            Aucune données n&apos;est disponible
+          </div>
+        ) : (
+          <div className={styles.list}>
+            {medias
+              .filter((media) => media.last_air_date)
+              .map(
+                (media) => (
+                  (media.genres = media.genres.map((genre) => genre.name)),
+                  (
+                    <MediaCard
+                      key={media.id}
+                      media={media}
+                      locale={locale}
+                      genres={media.genres}
+                      type="serie"
+                    />
+                  )
+                ),
+              )}
+          </div>
+        )}
+      </div>
+      ;
     </div>
   );
 };

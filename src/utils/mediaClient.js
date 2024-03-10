@@ -13,9 +13,9 @@ export const getMediaByPath = (path, params = [], language = "fr-FR") => {
   return fetch(url).then((res) => res.json());
 };
 
-export const getHydratedMedia = async (mediaIds, type, language = "fr-FR") => {
-  const mediaPromises = mediaIds.map((id) =>
-    getMediaByPath(`/${type}/${id}`, [], language),
+export const getHydratedMedia = async (medias, language = "fr-FR") => {
+  const mediaPromises = medias.map((media) =>
+    getMediaByPath(`/${media.mediaType}/${media.mediaId}`, [], language),
   );
 
   const mediaList = await Promise.all(mediaPromises);

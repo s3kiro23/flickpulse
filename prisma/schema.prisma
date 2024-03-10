@@ -20,6 +20,7 @@ model User {
 model MediaLike {
   id        Int     @id @default(autoincrement())
   mediaId     String
+  mediaType        String
   user    User    @relation(fields: [userId], references: [id])
   userId  Int
   @@unique([userId, mediaId])

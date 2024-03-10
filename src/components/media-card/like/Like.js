@@ -5,7 +5,7 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { signIn, useSession } from "next-auth/react";
 import React from "react";
 
-const Like = ({ mediaId }) => {
+const Like = ({ mediaId, type }) => {
   const { data: session } = useSession();
 
   const handleLikeCLicked = (e) => {
@@ -13,8 +13,10 @@ const Like = ({ mediaId }) => {
     if (!session) {
       signIn();
     }
+    if (type === "serie") type = "tv";
     fetch(`/api/like/${mediaId}`, {
       method: "POST",
+      body: JSON.stringify({ type: type }),
     });
   };
 

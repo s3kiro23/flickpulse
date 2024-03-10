@@ -21,6 +21,22 @@
       border-radius: 5px;
       border: 1px solid $greyColor;
       padding: 10px;
+      font-weight: 700;
+      transition: all 0.1s ease-in-out;
+    }
+
+    input[type="submit"] {
+      background-color: $greyColor;
+
+      &:hover {
+        background-color: $secondaryColor;
+        border: 1px solid $secondaryColor;
+        color: $whiteColor;
+      }
+
+      &:active {
+        transform: scale(0.98);
+      }
     }
   }
 }

@@ -82,10 +82,33 @@
   }
 
   .userIcon {
+    position: relative;
+
     &:hover {
       color: $secondaryColor;
       transition: color 0.3s;
     }
+
+    .dropdownMenu {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: white;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    .dropdownMenu a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+  }
+
+  .userIcon.open .dropdownMenu {
+    display: block;
   }
 
   @media (max-width: 768px) {

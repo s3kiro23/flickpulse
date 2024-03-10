@@ -11,7 +11,9 @@
     "menu1": "Films",
     "menu2": "Séries",
     "menu3": "Inscription",
-    "search": "Rechercher un titre..."
+    "search": "Rechercher un titre...",
+    "logout": "Déconnexion",
+    "profile": "Profil"
   },
   "card": {
     "date": "Le"
@@ -30,7 +32,8 @@
     "message": "Oups, une erreur c&apos;est produite."
   },
   "profile": {
-    "title": "Vos films préférés",
+    "moviesTitle": "Vos films préférés",
+    "seriesTitle": "Vos séries préférées",
     "logout": "Déconnexion"
   },
   "searchSidebar": {

@@ -4,40 +4,46 @@ import prisma from "@/utils/prisma";
 
 export async function POST(request, { params: { mediaId } }) {
   const token = await getToken({ req: request });
+  const body = await request.json();
 
   if (!token) {
     return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
   }
 
-  console.log(token)
-
   try {
-    const user = await prisma.user.update({
+    const user = await prisma.user.findUnique({
       where: {
         email: token.email,
+      },
+    });
+
+    if (!user) {
+      return NextResponse.json({ message: "User not found" }, { status: 404 });
+    }
+
+    const updatedUser = await prisma.user.update({
+      where: {
+        id: user.id,
       },
       data: {
         mediaLikes: {
           create: [
             {
               mediaId,
+              mediaType: body.type,
             },
           ],
         },
       },
     });
 
-    return NextResponse.json(user);
+    return NextResponse.json(updatedUser);
   } catch (error) {
-    if (error) {
-      return NextResponse.json(
-        {
-          message: `Le couple userId / mediaId existe déjà, message: ${error}`,
-        },
-        { status: 400 },
-      );
-    }
-
-    return NextResponse.json(user);
+    return NextResponse.json(
+      {
+        message: error.message,
+      },
+      { status: 400 },
+    );
   }
 }

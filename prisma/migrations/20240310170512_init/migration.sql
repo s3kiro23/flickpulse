@@ -9,6 +9,7 @@ CREATE TABLE "User" (
 CREATE TABLE "MediaLike" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "mediaId" TEXT NOT NULL,
+    "mediaType" TEXT NOT NULL,
     "userId" INTEGER NOT NULL,
     CONSTRAINT "MediaLike_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );

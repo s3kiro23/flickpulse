@@ -1,21 +1,31 @@
 .popular {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .container {
-    display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
-  
-    > div {
-      width: 200px;
-    }
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
 
-    @media (max-width: 768px) {
-      > div {
-        width: 100%;
-      }
+  > div {
+    width: 200px;
+  }
+}
+
+@media (max-width: 470px) {
+  .container {
+    > div {
+      width: 100%;
     }
   }
+}
+
+@media (min-width: 471px) and (max-width: 552px) {
+  .container {
+    > div {
+      width: 70%;
+    }
+  }
+}

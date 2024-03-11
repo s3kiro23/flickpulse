@@ -16,6 +16,7 @@ const Header = ({ locale, i18n }) => {
   const segment = useSelectedLayoutSegment();
   const { status } = useSession();
   const userIconRef = useRef(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -31,14 +32,21 @@ const Header = ({ locale, i18n }) => {
   }, []);
 
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} ${menuOpen ? styles.menuOpen : ""}`}>
+      <div className={styles.menuToggle} onClick={() => setMenuOpen(!menuOpen)}>
+        <div className={styles.burger}></div>
+        <div className={styles.burger}></div>
+        <div className={styles.burger}></div>
+      </div>
       <div className={styles.logo}>
         <h1 className={styles.brand}>
           <span className={styles.brandBottom}></span>
           <Link href={`/${locale}`}>FlickPulse</Link>
         </h1>
       </div>
-      <div className={styles.navigation}>
+      <div
+        className={`${styles.navigation} ${menuOpen ? styles.showMenu : ""}`}
+      >
         <nav>
           <ul>
             <li
@@ -59,26 +67,32 @@ const Header = ({ locale, i18n }) => {
               </li>
             )}
           </ul>
+          <MovieSearch i18n={i18n.search} />
+          <LanguageSelector />
         </nav>
-        <MovieSearch i18n={i18n.search} />
-        <div
-          ref={userIconRef}
-          className={
-            dropdownOpen ? `${styles.userIcon} ${styles.open}` : styles.userIcon
-          }
-          onClick={() => setDropdownOpen(!dropdownOpen)}
-        >
+      </div>
+      <div
+        ref={userIconRef}
+        className={
+          dropdownOpen ? `${styles.userIcon} ${styles.open}` : styles.userIcon
+        }
+        onClick={() => setDropdownOpen(!dropdownOpen)}
+      >
+        {status === "unauthenticated" ? (
           <Link href={`/${locale}/user/profile`}>
             <FontAwesomeIcon icon={faUser} />
           </Link>
-          {status == "authenticated" && dropdownOpen && (
-            <div className={styles.dropdownMenu}>
-              <Link href={`/${locale}/user/profile`}>{i18n.profile}</Link>
-              <LogoutButton i18n={i18n.logout} />
-            </div>
-          )}
-        </div>
-        <LanguageSelector />
+        ) : (
+          <div className={styles.icon}>
+            <FontAwesomeIcon icon={faUser} />
+          </div>
+        )}
+        {status == "authenticated" && dropdownOpen && (
+          <div className={styles.dropdownMenu}>
+            <Link href={`/${locale}/user/profile`}>{i18n.profile}</Link>
+            <LogoutButton i18n={i18n.logout} />
+          </div>
+        )}
       </div>
     </header>
   );

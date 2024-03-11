@@ -1,18 +1,41 @@
 .results {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    margin: 20px 0 30px 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin: 20px 0 30px 30px;
+  justify-content: center;
 
-    > div {
-        width: 200px;
-    }
+  > div {
+    width: 200px;
+  }
 }
 
-@media (max-width: 768px) {
-    .results {
-      margin-top: 20px;
-      justify-content: center;
+@media (max-width: 470px) {
+  .results {
+    margin: 20px 0 0 0;
+
+    > div {
+      width: 100%;
     }
   }
-  
+}
+
+@media (min-width: 471px) and (max-width: 629px) {
+  .results {
+    margin: 20px 0 0 0;
+
+    > div {
+      width: 70%;
+    }
+  }
+}
+
+@media (min-width: 630px) and (max-width: 991px) {
+  .results {
+    margin: 20px 0 0 0;
+
+    > div {
+      width: 45%;
+    }
+  }
+}

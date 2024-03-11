@@ -9,6 +9,7 @@
   cursor: pointer;
   transition: background-color 0.2s;
   font-weight: 700;
+  margin: 15px;
 
   &:hover {
     background-color: $greyColor;

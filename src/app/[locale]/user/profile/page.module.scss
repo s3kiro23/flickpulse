@@ -27,3 +27,19 @@
     }
   }
 }
+
+@media (max-width: 470px) {
+  .list {
+    > div {
+      width: 100% !important;
+    }
+  }
+}
+
+@media (min-width: 471px) and (max-width: 552px) {
+  .list {
+    > div {
+      width: 70%;
+    }
+  }
+}

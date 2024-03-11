@@ -14,7 +14,7 @@ const SerieSearchLayout = async ({ children, params: { locale } }) => {
         i18n={i18n.searchSidebar}
         locale={locale}
       />
-      <div>{children}</div>
+      <>{children}</>
     </div>
   );
 };

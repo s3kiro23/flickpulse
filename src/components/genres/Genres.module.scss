@@ -14,6 +14,8 @@
 		flex: 0 0 calc(20% - 20px);
 		text-align: center;
 		transition: background-color 0.2s, color 0.2s;
+		justify-content: center;
+		flex-grow: 1 !important;
 
 		&:hover {
 			background-color: $secondaryColor;
@@ -25,3 +27,35 @@
 		}
 	}
 }
+
+@media (max-width: 767px) {
+	.container {
+	  .genre {
+		flex: 0 0 calc(40% - 30px); /* 2 genres par rangée */
+	  }
+	}
+  }
+  
+  @media (min-width: 768px) and (max-width: 991px) {
+	.container {
+	  .genre {
+		flex: 0 0 calc(33.33% - 20px); /* 3 genres par rangée */
+	  }
+	}
+  }
+  
+  @media (min-width: 992px) and (max-width: 1199px) {
+	.container {
+	  .genre {
+		flex: 0 0 calc(25% - 20px); /* 4 genres par rangée */
+	  }
+	}
+  }
+  
+  @media (min-width: 1200px) {
+	.container {
+	  .genre {
+		flex: 0 0 calc(20% - 20px); /* 5 genres par rangée */
+	  }
+	}
+  }

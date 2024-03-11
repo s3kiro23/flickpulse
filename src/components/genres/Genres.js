@@ -10,7 +10,7 @@ const Genres = async ({ locale, type }) => {
   let linkType = "movie";
   if (type === "tv") linkType = "serie";
   return (
-    <div>
+    <>
       {type === "tv" ? <h2>{i18n.genre.tv}</h2> : <h2>{i18n.genre.movie}</h2>}
       <div className={styles.container}>
         {genres.map((genre) => (
@@ -23,7 +23,7 @@ const Genres = async ({ locale, type }) => {
           </Link>
         ))}
       </div>
-    </div>
+    </>
   );
 };
 

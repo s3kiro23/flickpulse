@@ -40,3 +40,13 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .signupForm {
+    form {
+      input {
+        min-width: 300px;
+      }
+    }
+  }
+}

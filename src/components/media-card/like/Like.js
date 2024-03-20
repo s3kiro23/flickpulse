@@ -22,7 +22,7 @@ const Like = ({ mediaId, type }) => {
 
   return (
     <div onClick={handleLikeCLicked}>
-      <FontAwesomeIcon icon={faHeart} />
+      <FontAwesomeIcon icon={faHeart}/>
     </div>
   );
 };

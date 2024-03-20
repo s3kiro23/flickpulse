@@ -21,14 +21,10 @@ const ProfilePage = async ({ params: { locale } }) => {
     },
   });
 
-  console.log(mediaLikes);
-
   const medias = await getHydratedMedia(
     mediaLikes.map((media) => media),
     locale,
   );
-
-  console.log(medias);
 
   return (
     <div className={styles.profile}>
@@ -37,7 +33,7 @@ const ProfilePage = async ({ params: { locale } }) => {
         {medias.filter((media) => !media.last_air_date).length == 0 ? (
           <div className={styles.list}>
             {" "}
-            Aucune données n&apos;est disponible
+            <span>Aucune données n&apos;est disponible</span>
           </div>
         ) : (
           <div className={styles.list}>
@@ -65,7 +61,7 @@ const ProfilePage = async ({ params: { locale } }) => {
         {medias.filter((media) => media.last_air_date).length == 0 ? (
           <div className={styles.list}>
             {" "}
-            Aucune données n&apos;est disponible
+            <span>Aucune données n&apos;est disponible</span>
           </div>
         ) : (
           <div className={styles.list}>

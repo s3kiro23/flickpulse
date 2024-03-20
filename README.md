@@ -4,6 +4,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 We used TMDB API for retrieve movies and series informations.
 
+Db usage : postGres vercel online
+
 
 ## Getting Started
 

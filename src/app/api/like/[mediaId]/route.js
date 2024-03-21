@@ -10,6 +10,8 @@ export async function POST(request, { params: { mediaId } }) {
     return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
   }
 
+  console.log(token);
+
   try {
     const user = await prisma.user.findUnique({
       where: {

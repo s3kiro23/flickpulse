@@ -9,12 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@auth/prisma-adapter": "^1.5.0",
     "@formatjs/intl-localematcher": "^0.5.4",
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-regular-svg-icons": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "@prisma/client": "^5.10.2",
+    "@prisma/client": "^5.11.0",
     "bcrypt": "^5.1.1",
     "eslint": "8.37.0",
     "eslint-config-next": "13.2.4",

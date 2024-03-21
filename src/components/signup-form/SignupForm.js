@@ -28,7 +28,7 @@ const SignupForm = () => {
     .catch((error) => NextResponse.json({ error }))
     .then((response) => {
       if (response.ok) {
-        signIn();
+        router.push("/login")
       }
     });
   };

@@ -2,16 +2,18 @@
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import { signIn, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import React from "react";
+import { useRouter } from "next/navigation";
 
 const Like = ({ mediaId, type }) => {
   const { data: session } = useSession();
+  const router = useRouter();
 
   const handleLikeCLicked = (e) => {
     e.preventDefault();
     if (!session) {
-      signIn();
+      router.push("/login");
     }
     if (type === "serie") type = "tv";
     fetch(`/api/like/${mediaId}`, {
@@ -22,7 +24,7 @@ const Like = ({ mediaId, type }) => {
 
   return (
     <div onClick={handleLikeCLicked}>
-      <FontAwesomeIcon icon={faHeart}/>
+      <FontAwesomeIcon icon={faHeart} />
     </div>
   );
 };

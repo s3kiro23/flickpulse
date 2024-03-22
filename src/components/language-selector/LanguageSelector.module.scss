@@ -3,15 +3,11 @@
 .selector {
   text-transform: uppercase;
   position: relative;
-
-  &.enabled {
-    svg {
-      transform: rotate(180deg);
-    }
-    ul {
-      transform: scaleY(1);
-    }
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 5px;
 
   ul {
     background-color: $blackColor;
@@ -39,6 +35,10 @@
 
   p {
     cursor: pointer;
+
+    &.active {
+      color: $secondaryColor;
+    }
 
     &:hover {
       color: $secondaryColor;

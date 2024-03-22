@@ -1,4 +1,5 @@
 "use client";
+
 import styles from "./LanguageSelector.module.scss";
 
 import { useEffect, useState } from "react";
@@ -6,34 +7,23 @@ import { availableLocales } from "@/utils/i18n";
 import { useCurrentLanguage } from "@/hooks/useCurrentLanguage";
 import React from "react";
 import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 const LanguageSelector = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const currentLanguage = useCurrentLanguage();
 
-  useEffect(() => {
-    setIsOpen(false);
-  }, [currentLanguage]);
-
   return (
-    <div className={`${styles.selector} ${isOpen ? styles.enabled : ""}`}>
-      <p onClick={() => setIsOpen((currOpen) => !currOpen)}>
-        {currentLanguage}
-        <span>
-          <FontAwesomeIcon icon={faChevronDown} />
-        </span>
-      </p>
-      <ul>
+    <div className={`${styles.selector}`}>
+      <p>{currentLanguage}</p>
+      <span>|</span>
+      <p>
         {availableLocales
           .filter((locale) => locale !== currentLanguage)
           .map((locale) => (
-            <li key={locale}>
-              <Link href={`/${locale}`}>{locale}</Link>
-            </li>
+            <Link href={`/${locale}`} key={locale}>
+              {locale}
+            </Link>
           ))}
-      </ul>
+      </p>
     </div>
   );
 };

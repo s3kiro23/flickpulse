@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import GoogleButton from "../google-button/GoogleButton";
 import Link from "next/link";
 
-const LoginForm = async ({ i18n }) => {
+const LoginForm = ({ i18n }) => {
   const router = useRouter();
   const [data, setData] = useState({
     email: "",
@@ -16,21 +16,16 @@ const LoginForm = async ({ i18n }) => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    signIn("credentials", {
+    await signIn("credentials", {
       ...data,
       redirect: false,
-    })
-      .then((response) => {
-        if (response.error) {
-          console.log(response.error);
-          return;
-        }
-        router.push("/");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    router.push("/");
+    }).then((response) => {
+      if (response.error) {
+        console.log(response.error);
+        return;
+      }
+      router.push("/");
+    });
   };
 
   return (
@@ -59,7 +54,7 @@ const LoginForm = async ({ i18n }) => {
         />
         <input type="submit" value={i18n.submit} />
         <p>
-          {i18n.register} <Link href={'/signup'}>{i18n.registerLink}</Link>
+          {i18n.register} <Link href={"/signup"}>{i18n.registerLink}</Link>
         </p>
       </form>
       {/* <GoogleButton /> */}

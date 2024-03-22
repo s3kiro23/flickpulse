@@ -1,20 +1,21 @@
-import LogoutButton from "@/components/logout-button/LogoutButton";
 import React from "react";
-import { getServerSession } from "next-auth";
 import prisma from "@/utils/prisma";
+import { getServerSession } from "next-auth";
+
 import { getHydratedMedia } from "@/utils/mediaClient";
+import { getDictionary } from "@/utils/dictionaries";
 import MediaCard from "@/components/media-card/MediaCard";
 import styles from "./page.module.scss";
-import { getDictionary } from "@/utils/dictionaries";
+import { useSession } from "next-auth/react";
 
-const ProfilePage = async ({ params: { locale } }) => {
+const ProfilePage = async ({ params: { locale }, res }) => {
+  const { user: userSession } = (await getServerSession()) || {};
+
   const i18n = await getDictionary(locale);
-
-  const { user: userSession } = await getServerSession();
 
   const { mediaLikes } = await prisma.user.findFirst({
     where: {
-      email: userSession.email,
+      email: userSession?.email,
     },
     include: {
       mediaLikes: true,

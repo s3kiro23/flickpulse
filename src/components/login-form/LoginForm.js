@@ -18,8 +18,18 @@ const LoginForm = () => {
     signIn("credentials", {
       ...data,
       redirect: false,
-    });
-    router.push("/");
+    })
+      .then((response) => {
+        if (response.error) {
+          console.log(response.error);
+          return;
+        }
+        router.push("/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+      router.push("/");
   };
 
   return (

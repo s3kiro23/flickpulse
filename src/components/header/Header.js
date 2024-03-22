@@ -1,21 +1,22 @@
 "use client";
 
+import Link from "next/link";
+import { useSession } from "next-auth/react";
+import { useState, useEffect, useRef } from "react";
+import { useSelectedLayoutSegment } from "next/navigation";
+
 import styles from "./Header.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
-import Link from "next/link";
 import MovieSearch from "@/components/movie-search/MovieSearch";
-import { useSelectedLayoutSegment } from "next/navigation";
 import LanguageSelector from "../language-selector/LanguageSelector";
-import { useSession } from "next-auth/react";
-import { useState, useEffect, useRef } from "react";
 import LogoutButton from "../logout-button/LogoutButton";
 
 const Header = ({ locale, i18n }) => {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const segment = useSelectedLayoutSegment();
   const { status } = useSession();
+  const segment = useSelectedLayoutSegment();
   const userIconRef = useRef(null);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {

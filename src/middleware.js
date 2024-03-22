@@ -12,10 +12,12 @@ export async function middleware(request) {
     return NextResponse.redirect(newLocaleUrl, { status: 302 });
   }
 
-  const pathname = request.nextUrl.pathname.replace(/^\/(fr|en)/, "");
+  const pathname = request.nextUrl.pathname;
+  const locale = pathname.split("/")[1];
+  const cleanedPathname = pathname.replace(/^\/(fr|en)/, "");
 
-  if (!token && protectedRoutes.includes(pathname)) {
-    const absoluteURL = new URL("/login", request.nextUrl.origin);
+  if (!token && protectedRoutes.includes(cleanedPathname)) {
+    const absoluteURL = new URL(`/${locale}/login`, request.nextUrl.origin);
     return NextResponse.redirect(absoluteURL.toString());
   }
 }

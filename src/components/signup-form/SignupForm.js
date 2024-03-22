@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { NextResponse } from "next/server";
 
-const SignupForm = () => {
+const SignupForm = ({ i18n }) => {
   const { status } = useSession();
   const router = useRouter();
 
@@ -25,20 +25,20 @@ const SignupForm = () => {
         password: formData.get("password"),
       }),
     })
-    .catch((error) => NextResponse.json({ error }))
-    .then((response) => {
-      if (response.ok) {
-        router.push("/login")
-      }
-    });
+      .catch((error) => NextResponse.json({ error }))
+      .then((response) => {
+        if (response.ok) {
+          router.push("/login");
+        }
+      });
   };
   return (
     <div className={styles.signupForm}>
       <form onSubmit={handleFormSubmit}>
-        <h1>Inscription</h1>
-        <input type="text" name="email" placeholder="Pseudo" />
+        <h1>{i18n.title}</h1>
+        <input type="text" name="email" placeholder={i18n.emailPlaceholder} />
         <input type="password" name="password" placeholder="*******" />
-        <input type="submit" value="S'inscrire" />
+        <input type="submit" value={i18n.submit} />
       </form>
     </div>
   );

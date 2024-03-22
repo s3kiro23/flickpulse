@@ -52,5 +52,19 @@
     "to": "to",
     "sortBy": "Sort by",
     "search": "Search"
+  },
+  "login": {
+    "title": "Login",
+    "emailPlaceholder": "Username",
+    "password": "Password",
+    "submit": "Sign in",
+    "register": "Don't have an account yet?",
+    "registerLink": "Register here"
+  },
+  "signup": {
+    "title": "Registration",
+    "emailPlaceholder": "Username",
+    "password": "Mot de passe",
+    "submit": "Sign up"
   }
 }

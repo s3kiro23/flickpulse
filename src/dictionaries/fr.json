@@ -52,5 +52,19 @@
     "movieTitle": "Titre",
     "gold": "Revenues",
     "search": "Rechercher"
+  },
+  "login": {
+    "title": "Connexion",
+    "emailPlaceholder": "Pseudo",
+    "password": "Mot de passe",
+    "submit": "Se connecter",
+    "register": "Pas encore de compte ?",
+    "registerLink": "Inscrivez-vous ici"
+  },
+  "signup": {
+    "title": "Inscription",
+    "emailPlaceholder": "Pseudo",
+    "password": "Mot de passe",
+    "submit": "S'inscrire"
   }
 }

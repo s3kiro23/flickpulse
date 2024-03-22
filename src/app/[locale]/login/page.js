@@ -1,12 +1,12 @@
-"use client";
-
 import React from "react";
 import LoginForm from "@/components/login-form/LoginForm";
+import { getDictionary } from "@/utils/dictionaries";
 
-const LoginPage = () => {
+const LoginPage = async ({ params: { locale } }) => {
+  const i18n = await getDictionary(locale).then((res) => res.login);
   return (
     <>
-      <LoginForm />
+      <LoginForm i18n={i18n} />
     </>
   );
 };

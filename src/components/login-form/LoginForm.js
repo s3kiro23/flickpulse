@@ -5,8 +5,9 @@ import styles from "./LoginForm.module.scss";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import GoogleButton from "../google-button/GoogleButton";
+import Link from "next/link";
 
-const LoginForm = () => {
+const LoginForm = async ({ i18n }) => {
   const router = useRouter();
   const [data, setData] = useState({
     email: "",
@@ -29,17 +30,17 @@ const LoginForm = () => {
       .catch((error) => {
         console.log(error);
       });
-      router.push("/");
+    router.push("/");
   };
 
   return (
     <div className={styles.loginForm}>
       <form onSubmit={handleFormSubmit}>
-        <h1>Connexion</h1>
+        <h1>{i18n.title}</h1>
         <input
           type="text"
           name="email"
-          placeholder="Pseudo"
+          placeholder={i18n.emailPlaceholder}
           required
           value={data.email}
           onChange={(e) => {
@@ -56,7 +57,10 @@ const LoginForm = () => {
             setData({ ...data, password: e.target.value });
           }}
         />
-        <input type="submit" value="Se connecter" />
+        <input type="submit" value={i18n.submit} />
+        <p>
+          {i18n.register} <Link href={'/signup'}>{i18n.registerLink}</Link>
+        </p>
       </form>
       {/* <GoogleButton /> */}
     </div>

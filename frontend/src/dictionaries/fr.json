@@ -1,0 +1,70 @@
+{
+  "popular": {
+    "tv": "Séries les plus populaires",
+    "movie": "Films les plus populaires"
+  },
+  "genre": {
+    "tv": "Parcourir les series par genre",
+    "movie": "Parcourir les films par genre"
+  },
+  "header": {
+    "menu1": "Films",
+    "menu2": "Séries",
+    "menu3": "Inscription",
+    "search": "Rechercher un titre...",
+    "logout": "Déconnexion",
+    "profile": "Profil"
+  },
+  "card": {
+    "date": "Le"
+  },
+  "breadcrumbs": {
+    "home": "Accueil",
+    "movies": "films",
+    "series": "series"
+  },
+  "notFound": {
+    "message": "Oups, la page que vous demandez n&apos;existe pas.",
+    "link": "Retour à la page d&apos;accueil"
+  },
+  "error": {
+    "title": "Erreur",
+    "message": "Oups, une erreur c&apos;est produite."
+  },
+  "profile": {
+    "moviesTitle": "Vos films préférés",
+    "seriesTitle": "Vos séries préférées",
+    "logout": "Déconnexion"
+  },
+  "searchSidebar": {
+    "mTitle": "Tous les ",
+    "sTitle": "Toutes les ",
+    "movies": "Films",
+    "series": "Séries",
+    "filter": "Filtrer",
+    "date": "Date de sortie",
+    "from": "De",
+    "to": "au",
+    "sortBy": "Trier par",
+    "popularity": "Popularité",
+    "rating": "Note",
+    "countNote": "Nombre de note",
+    "movieTitle": "Titre",
+    "gold": "Revenues",
+    "search": "Rechercher"
+  },
+  "login": {
+    "title": "Connexion",
+    "emailPlaceholder": "Pseudo",
+    "password": "Mot de passe",
+    "submit": "Se connecter",
+    "register": "Pas encore de compte ?",
+    "registerLink": "Inscrivez-vous ici"
+  },
+  "signup": {
+    "title": "Inscription",
+    "emailPlaceholder": "Pseudo",
+    "password": "Mot de passe",
+    "submit": "S'inscrire"
+  }
+}

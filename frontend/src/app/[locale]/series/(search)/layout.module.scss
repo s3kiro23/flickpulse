@@ -1,0 +1,10 @@
+.searchContainer {
+	display: flex;
+	margin: 0 30px;
+}
+
+@media (max-width: 768px) {
+	.searchContainer {
+		flex-direction: column;
+	}
+  }

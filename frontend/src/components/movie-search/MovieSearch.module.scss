@@ -1,0 +1,9 @@
+.searchContainer {
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .searchContainer {
+        width: auto;
+    }
+  }

@@ -1,0 +1,17 @@
+@import "variables";
+
+.container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 7px;
+	padding: 10px 10px;
+
+	.badge {
+		padding: 6px;
+		font-size: 0.6rem;
+		border-radius: 10px;
+		background-color: $greyColor;
+		color: black;
+		font-weight: bold;
+	}
+}

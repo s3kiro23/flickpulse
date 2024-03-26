@@ -1,0 +1,52 @@
+@import "variables";
+
+.selector {
+  text-transform: uppercase;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 5px;
+
+  ul {
+    background-color: $blackColor;
+    list-style-type: none;
+    position: absolute;
+    z-index: 20;
+    top: 35px;
+    left: -5px;
+    right: 0;
+    padding: 0 0 10px 0;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: all 0.3s ease-in-out;
+
+    li {
+      &:hover {
+        color: $secondaryColor;
+        transition: color 0.3s;
+      }
+    }
+  }
+
+  p {
+    cursor: pointer;
+
+    &.active {
+      color: $secondaryColor;
+    }
+
+    &:hover {
+      color: $secondaryColor;
+      transition: color 0.3s;
+    }
+  }
+
+  svg {
+    transition: transform 0.3s ease-in-out;
+  }
+}

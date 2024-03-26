@@ -1,0 +1,174 @@
+@import "variables";
+
+.header {
+  font-family: var(--font-roboto);
+  display: flex;
+  background-color: $blackColor;
+  color: $whiteColor;
+  padding: 0 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000; // Pour s'assurer que l'en-tête reste au-dessus du contenu
+
+  .menuToggle {
+    display: none; // Masquer le menu burger par défaut
+    cursor: pointer;
+
+    .burger {
+      width: 25px;
+      height: 3px;
+      background-color: $whiteColor;
+      margin: 6px 0;
+    }
+  }
+
+  .icon{
+    cursor: pointer;
+  }
+
+  .logo {
+    flex: 0.5;
+  }
+
+  .brand {
+    color: $secondaryColor;
+    position: relative;
+
+    &:hover {
+      .brandBottom {
+        position: absolute;
+        color: $secondaryColor;
+        z-index: -1;
+        animation: myanim 2s infinite;
+      }
+    }
+  }
+
+  .navigation {
+    display: flex;
+    justify-content: flex-end;
+    flex: 0.5;
+    gap: 20px;
+    margin-right: 35px;
+
+    nav {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 20px;
+
+      ul {
+        list-style-type: none;
+        display: flex;
+        gap: 20px;
+        margin-right: 20px;
+      }
+
+      &:hover {
+        ul {
+          li {
+            &:hover {
+              color: $secondaryColor;
+              transition: color 0.3s;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  input {
+    min-width: 300px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: none;
+    padding-left: 10px;
+    outline: none;
+    padding: 10px;
+  }
+
+  > div {
+    display: flex;
+    align-items: center;
+  }
+
+  .userIcon {
+    position: relative;
+
+    &:hover {
+      color: $secondaryColor;
+      transition: color 0.3s;
+    }
+
+    .dropdownMenu {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 60px;
+      background-color: white;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      border-radius: 5px;
+    }
+
+    .dropdownMenu a {
+      color: black;
+      margin: 5px 5px;
+      padding: 8px 16px;
+      text-decoration: none;
+      display: block;
+
+      &:hover {
+        background-color: $greyColor;
+        border-radius: 5px;
+        color: white;
+      }
+    }
+  }
+
+  .userIcon.open .dropdownMenu {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 20px 20px;
+    justify-content: space-between;
+
+    .logo {
+      flex: none;
+    }
+
+    .menuToggle {
+      display: block; // Afficher le menu burger pour les écrans mobiles
+    }
+
+    .navigation {
+      display: none; // Masquer la navigation par défaut
+      position: fixed;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background-color: $blackColor;
+      z-index: 1000;
+
+      &.showMenu {
+        display: block; // Afficher la navigation lorsqu'elle est ouverte
+      }
+
+      nav {
+        padding: 10px 25px;
+        flex-direction: column;
+        gap: 10px;
+        ul {
+          flex-direction: column;
+          gap: 10px;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}

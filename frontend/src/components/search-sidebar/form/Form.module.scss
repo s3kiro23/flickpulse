@@ -1,0 +1,73 @@
+@import "variables";
+
+.container {
+	box-shadow: 0px 2px 8px rgba(141, 40, 40, 0.1);
+	background-color: #797979;
+    
+	h2 {
+		color: $whiteColor;
+		font-size: 18px;
+		padding: 10px 15px;
+		margin: 0;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	}
+
+	h3 {
+		color: $whiteColor;
+		font-weight: 300;
+		font-family: var(--font-montserrat);
+		margin-top: 15px;
+		font-size: 16px;
+	}
+
+	> div {
+		padding: 0 15px 10px 15px;
+	}
+
+	.date {
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+		> div {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-top: 15px;
+
+			p {
+				margin: 0;
+				margin-right: 10px;
+				color: #ffffff;
+			}
+
+			input {
+				border-radius: 5px;
+				border: 1px solid #d9d9d9;
+				padding: 10px;
+				min-width: 200px;
+			}
+		}
+	}
+
+	select {
+		width: 100%;
+		padding: 10px 5px;
+		border: 1px solid #d9d9d9;
+		margin: 10px 0;
+	}
+
+	input[type="submit"] {
+		width: 100%;
+		border: none;
+		background-color: rgba(255, 255, 255, 0.76);
+		color: $secondaryColor;
+		font-weight: 700;
+		padding: 10px;
+		cursor: pointer;
+		transition: background-color 0.2s, color 0.2s;
+
+		&:hover {
+			background-color: $secondaryColor;
+			color: $whiteColor;
+		}
+	}
+}

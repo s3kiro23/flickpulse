@@ -1,0 +1,58 @@
+version: "3.5"
+
+services:
+    db:
+      image: mariadb
+      restart: always
+      networks:
+          - default
+      env_file:
+          - .env
+      environment:
+          MYSQL_ROOT_PASSWORD: example
+          MYSQL_DATABASE: flickpulse
+          MYSQL_USER: flickpulse
+          MYSQL_PASSWORD: example
+      volumes:
+          - type: bind
+            source: /var/dev_data/flickpulse/db/
+            target: /var/lib/mysql
+
+    adminer:
+      image: adminer
+      restart: always
+      networks:
+          - default
+      depends_on:
+          - db
+      environment:
+          - ADMINER_DESIGN=pepa-linha-dark
+
+    frontend:
+      build: ../frontend
+      restart: always
+      networks:
+          - default
+      volumes:
+          - type: bind
+            source: /var/dev_data/flickpulse/log/
+            target: /var/log/flickpulse/
+      ports:
+          - "3000:3000"
+      environment:
+          - NODE_ENV=production
+
+    backend:
+      image: '${DOCKER_IMAGE_BACKEND?Variable not set}:${TAG-latest}'
+      restart: always
+      networks:
+        - default
+      depends_on:
+        - db
+      env_file:
+        - .env
+      environment:
+        - MYSQL_ROOT_PASSWORD= example
+        - MYSQL_DATABASE= flickpulse
+        - MYSQL_USER= flickpulse
+        - MYSQL_PASSWORD= example

@@ -127,7 +127,6 @@ def create_user_open(session: SessionDep, user_in: UserCreateOpen) -> Any:
     """
     Create new user without the need to be logged in.
     """
-    print("Signup process")
     if not settings.USERS_OPEN_REGISTRATION:
         raise HTTPException(
             status_code=403,

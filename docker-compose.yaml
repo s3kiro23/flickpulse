@@ -27,13 +27,15 @@ services:
           - ADMINER_DESIGN=pepa-linha-dark
 
     backend:
+      #image: ${DOCKER_IMAGE_BACKEND}
       container_name: flickpulse_backend
       build:
-        context: .
+        context: ./backend
         dockerfile: Dockerfile
         args:
           INSTALL_DEV: ${INSTALL_DEV-false}
       restart: always
+      #command: bash -c ./backend/prestart.sh
       networks:
         - default
       depends_on:
@@ -58,3 +60,25 @@ services:
         - MYSQL_USER=${MYSQL_USER}
         - MYSQL_PASSWORD=${MYSQL_PASSWORD}
         - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+
+    frontend:
+      image: ${DOCKER_IMAGE_FRONTEND}
+      container_name: flickpulse_frontend
+      build:
+        context: ./frontend
+        args:
+          - NODE_ENV=production
+      restart: always
+      env_file:
+          - .env
+      environment:
+        - TMDB_API_KEY=${TMDB_API_KEY}
+        - TMDB_API_URL=${TMDB_API_URL}
+        - NEXT_PUBLIC_TMDB_IMAGE_BASE_PATH=${NEXT_PUBLIC_TMDB_IMAGE_BASE_PATH}
+        - NEXTAUTH_SECRET=${NEXTAUTH_SECRET}
+        - NEXTAUTH_URL=${NEXTAUTH_URL}
+        - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
+      # volumes:
+      #     - type: bind
+      #       source: /var/dev_data/flickpulse/log/
+      #       target: /var/log/flickpulse/

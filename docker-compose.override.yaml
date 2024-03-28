@@ -18,6 +18,17 @@ services:
       volumes:
         - ./:/opt/backend
       build:
-        context: .
+        context: ./backend
         args:
           INSTALL_DEV: ${INSTALL_DEV-true}
+
+    frontend:
+      restart: "no"
+      ports:
+        - "3000:3000"
+      volumes:
+        - ./:/app
+      build:
+        context: ./frontend
+        # args:
+        #   - NODE_ENV=development

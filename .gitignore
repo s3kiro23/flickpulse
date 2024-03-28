@@ -1,2 +1,6 @@
 .vscode
 .git
+
+# local env files
+.env*.local
+.env

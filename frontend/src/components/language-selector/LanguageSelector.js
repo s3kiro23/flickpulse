@@ -2,7 +2,6 @@
 
 import styles from "./LanguageSelector.module.scss";
 
-import { useEffect, useState } from "react";
 import { availableLocales } from "@/utils/i18n";
 import { useCurrentLanguage } from "@/hooks/useCurrentLanguage";
 import React from "react";

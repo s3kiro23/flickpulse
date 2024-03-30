@@ -88,7 +88,7 @@ const Header = ({ locale, i18n }) => {
             <FontAwesomeIcon icon={faUser} />
           </div>
         )}
-        {status == "authenticated" && dropdownOpen && (
+        {status === "authenticated" && dropdownOpen && (
           <div className={styles.dropdownMenu}>
             <Link href={`/${locale}/user/profile`}>{i18n.profile}</Link>
             <LogoutButton i18n={i18n.logout} />

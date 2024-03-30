@@ -15,11 +15,17 @@ const Like = ({ mediaId, type }) => {
     if (!session) {
       router.push("/login");
     }
+    console.log(session);
     if (type === "serie") type = "tv";
-    fetch(`/api/like/${mediaId}`, {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/medialikes/`, {
       method: "POST",
-      body: JSON.stringify({ type: type }),
-    });
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${session?.access_token}`,
+      },
+      body: JSON.stringify({ media_type: type, media_id: mediaId.toString() }),
+    })
+
   };
 
   return (

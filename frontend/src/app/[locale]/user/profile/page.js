@@ -1,14 +1,14 @@
-import React from "react";
-
 import { getHydratedMedia } from "@/utils/mediaClient";
 import { getDictionary } from "@/utils/dictionaries";
 import MediaCard from "@/components/media-card/MediaCard";
 import styles from "./page.module.scss";
 import { getCsrfToken } from "next-auth/react";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 const ProfilePage = async ({ params: { locale } }) => {
-	const token = cookies.get("next-auth.session-token");
-	console.log("cookies token:", token);
+	const session = await getServerSession(authOptions);
+
 	const i18n = await getDictionary(locale);
 	const csrfToken = await getCsrfToken();
 
@@ -16,24 +16,21 @@ const ProfilePage = async ({ params: { locale } }) => {
 		throw new Error("No csrf token");
 	}
 
-	const mediaLikes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/medialikes/`, {
-		method: "GET",
+	const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/medialikes/`, {
 		method: "GET",
 		headers: {
 			"Content-Type": "application/json",
 			"X-XSRF-Token": csrfToken,
-			Authorization: `Bearer ${token}`,
+			Authorization: `Bearer ${session?.access_token}`,
 		},
-	})
-		.catch((error) => NextResponse.json({ error }))
-		.then((response) => {
-			if (response.ok) {
-				console.log("response:", response);
-			}
-		});
+	});
+	if (!response.ok) {
+		throw new Error("Failed to fetch media likes");
+	}
+	const mediaLikes = await response.json();
 
 	const medias = await getHydratedMedia(
-		mediaLikes.map((media) => media),
+		mediaLikes.data.map((media) => media),
 		locale
 	);
 

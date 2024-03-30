@@ -1,26 +1,42 @@
 import React from "react";
-import prisma from "@/utils/prisma";
+//import prisma from "@/utils/prisma";
 import { getServerSession } from "next-auth";
 
 import { getHydratedMedia } from "@/utils/mediaClient";
 import { getDictionary } from "@/utils/dictionaries";
 import MediaCard from "@/components/media-card/MediaCard";
 import styles from "./page.module.scss";
-import { useSession } from "next-auth/react";
+import { useSession, getCsrfToken } from "next-auth/react";
+import { cookies } from "next/headers";
 
 const ProfilePage = async ({ params: { locale }, res }) => {
-  const { user: userSession } = (await getServerSession()) || {};
+  const cookieStore = cookies();
+  const token = cookieStore.get("next-auth.session-token").value;
 
   const i18n = await getDictionary(locale);
+  const csrfToken = await getCsrfToken();
 
-  const { mediaLikes } = await prisma.user.findFirst({
-    where: {
-      email: userSession?.email,
+  if (!csrfToken) {
+    throw new Error("No csrf token");
+  }
+
+  const mediaLikes = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/v1/medialikes/`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "X-XSRF-Token": csrfToken,
+        Authorization: "Bearer " + token,
+      },
     },
-    include: {
-      mediaLikes: true,
-    },
-  });
+  )
+    .catch((error) => NextResponse.json({ error }))
+    .then((response) => {
+      if (response.ok) {
+        console.log("response:", response);
+      }
+    });
 
   const medias = await getHydratedMedia(
     mediaLikes.map((media) => media),

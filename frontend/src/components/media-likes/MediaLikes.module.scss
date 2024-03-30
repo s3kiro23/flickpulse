@@ -1,0 +1,45 @@
+@import "variables";
+
+.section {
+	margin-top: 30px;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	flex-wrap: wrap;
+
+	h1 {
+		margin: 0;
+		color: $whiteColor;
+	}
+
+	.list {
+		display: flex;
+		flex-wrap: wrap;
+		margin-top: 30px;
+		gap: 20px;
+
+		span {
+			color: $whiteColor;
+		}
+
+		> div {
+			width: 200px;
+		}
+	}
+}
+
+@media (max-width: 470px) {
+	.list {
+		> div {
+			width: 100% !important;
+		}
+	}
+}
+
+@media (min-width: 471px) and (max-width: 552px) {
+	.list {
+		> div {
+			width: 70%;
+		}
+	}
+}

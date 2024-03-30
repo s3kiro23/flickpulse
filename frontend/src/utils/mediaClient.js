@@ -1,5 +1,7 @@
 import "server-only";
 
+import axios from "axios";
+
 export const getMediaByPath = (path, params = [], language = "fr-FR") => {
 	const url = new URL(`${process.env.TMDB_API_URL}${path}`);
 	url.searchParams.append("api_key", process.env.TMDB_API_KEY);
@@ -10,7 +12,7 @@ export const getMediaByPath = (path, params = [], language = "fr-FR") => {
 			url.searchParams.append(param.key, param.value);
 		});
 
-	return fetch(url).then((res) => res.json());
+	return axios({ url: url }).then((res) => res.data);
 };
 
 export const getHydratedMedia = async (medias, language = "fr-FR") => {

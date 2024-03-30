@@ -5,6 +5,7 @@ import styles from "./page.module.scss";
 import { getCsrfToken } from "next-auth/react";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import axios from "axios";
 
 const ProfilePage = async ({ params: { locale } }) => {
 	const session = await getServerSession(authOptions);
@@ -16,18 +17,19 @@ const ProfilePage = async ({ params: { locale } }) => {
 		throw new Error("No csrf token");
 	}
 
-	const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/medialikes/`, {
+	const response = await axios({
 		method: "GET",
+		url: `${process.env.NEXT_PUBLIC_API_URL}/api/v1/medialikes/`,
 		headers: {
 			"Content-Type": "application/json",
 			"X-XSRF-Token": csrfToken,
 			Authorization: `Bearer ${session?.access_token}`,
 		},
 	});
-	if (!response.ok) {
+	if (!response.status === 200) {
 		throw new Error("Failed to fetch media likes");
 	}
-	const mediaLikes = await response.json();
+	const mediaLikes = await response.data;
 
 	const medias = await getHydratedMedia(
 		mediaLikes.data.map((media) => media),

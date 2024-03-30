@@ -1,0 +1,21 @@
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+self["webpackHotUpdate_N_E"]("app/[locale]/movies/(search)/layout",{
+
+/***/ "(app-client)/./node_modules/next/dist/build/webpack/loaders/next-flight-client-entry-loader.js?modules=D%3A%5CDev%5CDYMA%5CNEXT.JS%5Cflickpulse%5Csrc%5Capp%5C%5Blocale%5D%5Cmovies%5C(search)%5Clayout.module.scss&modules=D%3A%5CDev%5CDYMA%5CNEXT.JS%5Cflickpulse%5Csrc%5Ccomponents%5Csearch-sidebar%5CSearchSideBar.js&server=false!":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-flight-client-entry-loader.js?modules=D%3A%5CDev%5CDYMA%5CNEXT.JS%5Cflickpulse%5Csrc%5Capp%5C%5Blocale%5D%5Cmovies%5C(search)%5Clayout.module.scss&modules=D%3A%5CDev%5CDYMA%5CNEXT.JS%5Cflickpulse%5Csrc%5Ccomponents%5Csearch-sidebar%5CSearchSideBar.js&server=false! ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
+
+eval(__webpack_require__.ts("Promise.resolve(/*! import() eager */).then(__webpack_require__.t.bind(__webpack_require__, /*! ./src/app/[locale]/movies/(search)/layout.module.scss */ \"(app-client)/./src/app/[locale]/movies/(search)/layout.module.scss\", 23));\nPromise.resolve(/*! import() eager */).then(__webpack_require__.bind(__webpack_require__, /*! ./src/components/search-sidebar/SearchSideBar.js */ \"(app-client)/./src/components/search-sidebar/SearchSideBar.js\"))//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwcC1jbGllbnQpLy4vbm9kZV9tb2R1bGVzL25leHQvZGlzdC9idWlsZC93ZWJwYWNrL2xvYWRlcnMvbmV4dC1mbGlnaHQtY2xpZW50LWVudHJ5LWxvYWRlci5qcz9tb2R1bGVzPUQlM0ElNUNEZXYlNUNEWU1BJTVDTkVYVC5KUyU1Q2ZsaWNrcHVsc2UlNUNzcmMlNUNhcHAlNUMlNUJsb2NhbGUlNUQlNUNtb3ZpZXMlNUMoc2VhcmNoKSU1Q2xheW91dC5tb2R1bGUuc2NzcyZtb2R1bGVzPUQlM0ElNUNEZXYlNUNEWU1BJTVDTkVYVC5KUyU1Q2ZsaWNrcHVsc2UlNUNzcmMlNUNjb21wb25lbnRzJTVDc2VhcmNoLXNpZGViYXIlNUNTZWFyY2hTaWRlQmFyLmpzJnNlcnZlcj1mYWxzZSEuanMiLCJtYXBwaW5ncyI6IkFBQUEsbU9BQWlJO0FBQ2pJIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vX05fRS8/ODVhZCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQoLyogd2VicGFja01vZGU6IFwiZWFnZXJcIiAqLyBcIkQ6XFxcXERldlxcXFxEWU1BXFxcXE5FWFQuSlNcXFxcZmxpY2twdWxzZVxcXFxzcmNcXFxcYXBwXFxcXFtsb2NhbGVdXFxcXG1vdmllc1xcXFwoc2VhcmNoKVxcXFxsYXlvdXQubW9kdWxlLnNjc3NcIik7XG5pbXBvcnQoLyogd2VicGFja01vZGU6IFwiZWFnZXJcIiAqLyBcIkQ6XFxcXERldlxcXFxEWU1BXFxcXE5FWFQuSlNcXFxcZmxpY2twdWxzZVxcXFxzcmNcXFxcY29tcG9uZW50c1xcXFxzZWFyY2gtc2lkZWJhclxcXFxTZWFyY2hTaWRlQmFyLmpzXCIpIl0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(app-client)/./node_modules/next/dist/build/webpack/loaders/next-flight-client-entry-loader.js?modules=D%3A%5CDev%5CDYMA%5CNEXT.JS%5Cflickpulse%5Csrc%5Capp%5C%5Blocale%5D%5Cmovies%5C(search)%5Clayout.module.scss&modules=D%3A%5CDev%5CDYMA%5CNEXT.JS%5Cflickpulse%5Csrc%5Ccomponents%5Csearch-sidebar%5CSearchSideBar.js&server=false!\n"));
+
+/***/ })
+
+});

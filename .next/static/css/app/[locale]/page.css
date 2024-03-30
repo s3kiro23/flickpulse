@@ -1,0 +1,191 @@
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[2].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[2].oneOf[10].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[2].oneOf[10].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[2].oneOf[10].use[5]!./src/components/genres/Genres.module.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
+.Genres_container__4z99F {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-top: 20px;
+}
+.Genres_container__4z99F .Genres_genre__GwCNn {
+  padding: 10px 0;
+  background-color: #b4b4b4;
+  color: #c70b0b;
+  font-weight: bold;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: calc(20% - 20px);
+  text-align: center;
+  transition: background-color 0.2s, color 0.2s;
+  justify-content: center;
+}
+.Genres_container__4z99F .Genres_genre__GwCNn:hover {
+  background-color: #c70b0b;
+  color: #fff;
+}
+.Genres_container__4z99F .Genres_genre__GwCNn p {
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .Genres_container__4z99F .Genres_genre__GwCNn {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: calc(40% - 30px); /* 2 genres par rangée */
+    flex-grow: 1 !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .Genres_container__4z99F .Genres_genre__GwCNn {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: calc(33.33% - 20px); /* 3 genres par rangée */
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .Genres_container__4z99F .Genres_genre__GwCNn {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: calc(25% - 20px); /* 4 genres par rangée */
+  }
+}
+@media (min-width: 1200px) {
+  .Genres_container__4z99F .Genres_genre__GwCNn {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: calc(20% - 20px); /* 5 genres par rangée */
+  }
+}
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[2].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[2].oneOf[10].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[2].oneOf[10].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[2].oneOf[10].use[5]!./src/components/media-card/MediaCard.module.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.MediaCard_card__HEWTc {
+  font-family: var(--font-montserrat);
+  border-radius: 10px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
+  min-width: 200px;
+  transition: transform 150ms ease-in-out;
+  background-color: #fff;
+}
+.MediaCard_card__HEWTc:hover {
+  transform: scale(1.05);
+}
+.MediaCard_card__HEWTc .MediaCard_image__hk3sf {
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+.MediaCard_card__HEWTc .MediaCard_image__hk3sf img {
+  border-radius: 10px 10px 0 0;
+}
+.MediaCard_card__HEWTc .MediaCard_image__hk3sf > div {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 5;
+  color: #c70b0b;
+}
+.MediaCard_card__HEWTc .MediaCard_image__hk3sf > div:hover {
+  color: #304886;
+  transition: color 0.3s;
+}
+.MediaCard_card__HEWTc .MediaCard_content__Xtehr {
+  padding: 5px 10px;
+  position: relative;
+}
+.MediaCard_card__HEWTc .MediaCard_content__Xtehr .MediaCard_vote___xwHL {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  border-radius: 50%;
+  top: -19px;
+  width: 35px;
+  height: 35px;
+  z-index: 2;
+  margin: 0;
+  border: 1px solid #c70b0b;
+  background-color: #fff;
+  font-weight: bold;
+}
+.MediaCard_card__HEWTc .MediaCard_content__Xtehr h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 5px 0;
+  margin-top: 15px;
+}
+.MediaCard_card__HEWTc .MediaCard_content__Xtehr p {
+  font-size: 0.7rem;
+  font-weight: 300;
+}
+@media (max-width: 768px) {
+  .MediaCard_card__HEWTc .MediaCard_card__HEWTc {
+    min-width: none !important;
+    width: 100% !important;
+  }
+  .MediaCard_card__HEWTc .MediaCard_image__hk3sf {
+    height: 500px;
+  }
+}
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[2].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[2].oneOf[10].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[2].oneOf[10].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[2].oneOf[10].use[5]!./src/components/badges/Badges.module.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.Badges_container__ohdtX {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  padding: 10px 10px;
+}
+.Badges_container__ohdtX .Badges_badge__ccdOu {
+  padding: 6px;
+  font-size: 0.6rem;
+  border-radius: 10px;
+  background-color: #b4b4b4;
+  color: black;
+  font-weight: bold;
+}
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[2].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[2].oneOf[10].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[2].oneOf[10].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[2].oneOf[10].use[5]!./src/components/popular/Popular.module.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.Popular_popular__CHrSG {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.Popular_container__4MhF_ {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.Popular_container__4MhF_ > div {
+  width: 200px;
+}
+
+@media (max-width: 470px) {
+  .Popular_container__4MhF_ > div {
+    width: 100%;
+  }
+}
+@media (min-width: 471px) and (max-width: 552px) {
+  .Popular_container__4MhF_ > div {
+    width: 70%;
+  }
+}
+/*!**************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[2].oneOf[8].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[2].oneOf[8].use[3]!./src/app/[locale]/page.module.css ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************/
+.page_main__w6TvN {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 50px 0 50px;
+  min-height: 100vh;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 470px) {
+  .page_main__w6TvN {
+    padding: 10px 30px 0 30px;
+  }
+}

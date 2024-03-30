@@ -1,0 +1,62 @@
+{
+  "pages": {
+    "/[locale]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/[locale]/page.css",
+      "static/chunks/app/[locale]/page.js"
+    ],
+    "/[locale]/error": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[locale]/error.js"
+    ],
+    "/[locale]/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/[locale]/layout.css",
+      "static/chunks/app/[locale]/layout.js"
+    ],
+    "/[locale]/not-found": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[locale]/not-found.js"
+    ],
+    "/[locale]/movies/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/[locale]/movies/[id]/page.css",
+      "static/chunks/app/[locale]/movies/[id]/page.js"
+    ],
+    "/[locale]/user/profile/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/[locale]/user/profile/page.css",
+      "static/chunks/app/[locale]/user/profile/page.js"
+    ],
+    "/[locale]/movies/(search)/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/[locale]/movies/(search)/page.css",
+      "static/chunks/app/[locale]/movies/(search)/page.js"
+    ],
+    "/[locale]/movies/(search)/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/[locale]/movies/(search)/layout.css",
+      "static/chunks/app/[locale]/movies/(search)/layout.js"
+    ],
+    "/[locale]/series/(search)/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/[locale]/series/(search)/page.css",
+      "static/chunks/app/[locale]/series/(search)/page.js"
+    ],
+    "/[locale]/series/(search)/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/[locale]/series/(search)/layout.css",
+      "static/chunks/app/[locale]/series/(search)/layout.js"
+    ]
+  }
+}

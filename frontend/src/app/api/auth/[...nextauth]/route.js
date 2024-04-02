@@ -42,6 +42,7 @@ export const authOptions = {
 				const { username, password } = credentials;
 				const bodyContent = new URLSearchParams({ username, password });
 				try {
+					console.log("login in progress");
 					const response = await axios({
 						method: "post",
 						contentType: "application/x-www-form-urlencoded",

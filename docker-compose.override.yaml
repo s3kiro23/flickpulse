@@ -16,7 +16,7 @@ services:
       ports:
         - "8888:8888"
       volumes:
-        - ./:/opt/backend
+        - ./backend:/opt/backend
       build:
         context: ./backend
         args:
@@ -24,10 +24,11 @@ services:
 
     frontend:
       restart: "no"
+      volumes:
+        - ./frontend/src:/app/src
+        - ./frontend/public:/app/public
       ports:
         - "3000:3000"
-      volumes:
-        - ./:/app
       build:
         context: ./frontend
         # args:

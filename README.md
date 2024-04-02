@@ -23,7 +23,7 @@ FlickPulse is a web application that allows users to discover and like movies/se
 - Create a watchlist of movies to watch later
 
 ## Installation for dev
-1. Clone the repository: `git clone https://github.com/sekiro23/my-movie-app.git`
+1. Clone the repository: `git clone https://github.com/s3kiro23/flickpulse.git`
 2. Set up `.env` in frontend/ and backend/ folder with your variables like `.env.development`
 3. Install the required dependencies in frontend/ : `npm install` | `yarn`
 4. Build the docker for backend/ : 

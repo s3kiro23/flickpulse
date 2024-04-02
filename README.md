@@ -1,31 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# FlickPulse
 
 ## Description
+FlickPulse is a web application that allows users to discover and like movies/series. It provides a user-friendly interface to browse through a vast collection of media retrieve from TMDB API.
 
-We used TMDB API for retrieve movies and series informations.
+## Technology Stack and Features
 
-Db usage : postGres vercel online
+- 🚀 [NextJS](https://nextjs.org/) for the frontend.
+    - 🎨 [SaSS](https://sass-lang.com/) for the frontend style.
+- [Axios](https://axios-http.com/docs/intro) for JS requests
+- 💾 [PostgreSQL](https://www.postgresql.org) as the SQL database from Vercel.
+- 🔒 Secure password hashing by default.
+- 🔑 Next-auth JWT token authentication.
 
+## Features
+- Browse media by genre, release date, and popularity
+- Search for movies by title or keywords
+- View detailed information about each media, including cast, crew, and synopsis
+- Create a watchlist of movies to watch later
 
-## Getting Started
-
-Install all dependencies:
-
-```bash
-npm i
-# or
-yarn 
-```
-
-Run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
+## Installation for dev
+1. Clone the repository: `git clone https://github.com/s3kiro23/flickpulse.git`
+2. Set up `.env` with your variables like `.env.development`
+3. Install the required dependencies in frontend/ : `npm install` | `yarn`
+4. Start the frontend application: `next dev` | `yarn dev` | `npm run dev`

@@ -1,7 +1,7 @@
 # FlickPulse
 
 ## Description
-FlickPulse is a web application that allows users to discover and like movies/series. It provides a user-friendly interface to browse through a vast collection of media.
+FlickPulse is a web application that allows users to discover and like movies/series. It provides a user-friendly interface to browse through a vast collection of media from TMDB API.
 
 ## Technology Stack and Features
 
@@ -14,7 +14,7 @@ FlickPulse is a web application that allows users to discover and like movies/se
 - 🐋 [Docker Compose](https://www.docker.com) for development and production.
 - [Axios](https://axios-http.com/docs/intro) for JS requests
 - 🔒 Secure password hashing by default.
-- 🔑 JWT token authentication.
+- 🔑 Next-Auth JWT token authentication.
 
 ## Features
 - Browse media by genre, release date, and popularity

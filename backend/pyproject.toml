@@ -27,6 +27,7 @@ httpx = "^0.27.0"
 sqlmodel = "^0.0.16"
 mysql-connector-python = "^8.3.0"
 fastapi-nextauth-jwt = "^1.1.2"
+pytest = "^8.2.2"
 
 [tool.poetry.group.dev.dependencies]
 types-python-jose = "^3.3.4.20240106"

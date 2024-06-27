@@ -2,22 +2,22 @@ version: "3.5"
 
 services:
     db:
-      restart: "no"
-      ports:
-          - "3306:3306"
+        restart: "no"
+        ports:
+            - "3306:3306"
 
     adminer:
-      restart: "no"
-      ports:
-        - "8080:8080"
+        restart: "no"
+        ports:
+            - "8080:8080"
 
     backend:
-      restart: "no"
-      ports:
-        - "8888:8888"
-      volumes:
-        - ./:/opt/backend
-      build:
-        context: .
-        args:
-          INSTALL_DEV: ${INSTALL_DEV-true}
+        restart: "no"
+        ports:
+            - "8888:8888"
+        volumes:
+            - ./:/opt/backend
+        build:
+            context: .
+            args:
+                INSTALL_DEV: ${INSTALL_DEV-true}

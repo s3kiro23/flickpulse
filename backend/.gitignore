@@ -10,3 +10,6 @@ htmlcov
 # local env files
 .env*.local
 .env
+
+# Unit test
+.pytest_cache

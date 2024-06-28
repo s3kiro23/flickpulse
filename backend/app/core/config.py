@@ -1,3 +1,4 @@
+from ast import mod
 import secrets
 import warnings
 from typing import Annotated, Any, Literal
@@ -65,7 +66,7 @@ class Settings(BaseSettings):
             path=self.MYSQL_DATABASE,
         )
     
-    print(SQLALCHEMY_DATABASE_URI)
+    print(f"SQLALCHEMY URI: {SQLALCHEMY_DATABASE_URI}")
 
     SMTP_TLS: bool = True
     SMTP_SSL: bool = False
@@ -117,6 +118,5 @@ class Settings(BaseSettings):
         )
 
         return self
-
 
 settings = Settings()  # type: ignore

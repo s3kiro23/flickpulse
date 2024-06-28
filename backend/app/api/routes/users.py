@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, List
 
 from fastapi import APIRouter, Depends, HTTPException
 from sqlmodel import col, delete, func, select
@@ -16,6 +16,7 @@ from app.models import (
     Message,
     UpdatePassword,
     User,
+    UserBase,
     UserCreate,
     UserCreateOpen,
     UserOut,
@@ -37,12 +38,25 @@ def read_users(session: SessionDep, skip: int = 0, limit: int = 100) -> Any:
     """
 
     count_statement = select(func.count()).select_from(User)
-    count = session.exec(count_statement).one()
+    count = session.execute(count_statement).one()
+    count = count[0]
 
     statement = select(User).offset(skip).limit(limit)
-    users = session.exec(statement).all()
+    users = session.execute(statement).all()
 
-    return UsersOut(data=users, count=count)
+    # Fonction pour convertir les résultats de la requête en objets UserOut
+    def convert_users_to_userout(users: List[tuple]) -> List[UserOut]:
+        return [UserOut(
+            is_active=user[0].is_active,
+            is_superuser=user[0].is_superuser,
+            email=user[0].email,
+            full_name=user[0].full_name,
+            id=user[0].id
+        ) for user in users]
+    
+    users_out = convert_users_to_userout(users)
+
+    return UsersOut(data=users_out, count=count)
 
 
 @router.post(
@@ -139,7 +153,7 @@ def create_user_open(session: SessionDep, user_in: UserCreateOpen) -> Any:
             status_code=400,
             detail="The user with this email already exists in the system",
         )
-    user_create = UserCreate.from_orm(user_in)
+    user_create = UserCreate.model_validate(user_in)
     user = crud.create_user(session=session, user_create=user_create)
     return user
 
@@ -159,6 +173,11 @@ def read_user_by_id(
             status_code=403,
             detail="The user doesn't have enough privileges",
         )
+    if not user:
+        raise HTTPException(
+            status_code=404,
+            detail="The user with this id does not exist in the system",
+        )
     return user
 
 
@@ -167,6 +186,7 @@ def read_user_by_id(
     dependencies=[Depends(get_current_active_superuser)],
     response_model=UserOut,
 )
+
 def update_user(
     *,
     session: SessionDep,
@@ -184,11 +204,13 @@ def update_user(
             detail="The user with this id does not exist in the system",
         )
     if user_in.email:
-        existing_user = crud.get_user_by_email(session=session, email=user_in.email)
-        if existing_user and existing_user.id != user_id:
-            raise HTTPException(
-                status_code=409, detail="User with this email already exists"
-            )
+        existing_user_tuple = crud.get_user_by_email(session=session, email=user_in.email)
+        if existing_user_tuple:
+            existing_user, = existing_user_tuple
+            if existing_user.id != user_id:
+                raise HTTPException(
+                    status_code=409, detail="User with this email already exists"
+                )
 
     db_user = crud.update_user(session=session, db_user=db_user, user_in=user_in)
     return db_user
@@ -214,7 +236,7 @@ def delete_user(
         )
 
     statement = delete(MediaLike).where(col(MediaLike.owner_id) == user_id)
-    session.exec(statement)  # type: ignore
+    session.execute(statement)  # type: ignore
     session.delete(user)
     session.commit()
     return Message(message="User deleted successfully")

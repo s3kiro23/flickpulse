@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, List
 
 from fastapi import APIRouter, HTTPException
 from sqlmodel import func, select
@@ -19,25 +19,34 @@ def read_medialikes(
 
     if current_user.is_superuser:
         count_statement = select(func.count()).select_from(MediaLike)
-        count = session.exec(count_statement).one()
+        count = session.execute(count_statement).one()
         statement = select(MediaLike).offset(skip).limit(limit)
-        medialikes = session.exec(statement).all()
+        medialikes = session.execute(statement).all()
     else:
         count_statement = (
             select(func.count())
             .select_from(MediaLike)
             .where(MediaLike.owner_id == current_user.id)
         )
-        count = session.exec(count_statement).one()
+        count = session.execute(count_statement).one()
         statement = (
             select(MediaLike)
             .where(MediaLike.owner_id == current_user.id)
             .offset(skip)
             .limit(limit)
         )
-        medialikes = session.exec(statement).all()
+        medialikes_tuple = session.execute(statement).all()
 
-    return MediaLikesOut(data=medialikes, count=count)
+        def convert_users_to_medialikesout(medialikes: List[tuple]) -> List[MediaLikesOut]:
+            return [MediaLikesOut(
+                id=medialike[0].id,
+                owner_id=medialike[0].owner_id,
+            ) for medialike in medialikes]
+    
+        medialikes_out = convert_users_to_medialikesout(medialikes_tuple)
+        print(count)
+
+    return MediaLikesOut(data=medialikes_out, count=count)
 
 
 @router.get("/{id}", response_model=MediaLikeOut)

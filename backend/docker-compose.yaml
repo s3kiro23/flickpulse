@@ -3,7 +3,7 @@ version: "3.5"
 services:
     db:
       container_name: flickpulse_db
-      image: mariadb
+      image: mariadb:latest
       restart: always
       networks:
           - default
@@ -14,6 +14,8 @@ services:
         - MYSQL_USER=${MYSQL_USER}
         - MYSQL_PASSWORD=${MYSQL_PASSWORD}
         - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      volumes:
+        - mariadb_data:/Users/jeanmarie/Documents/repos/projets-perso/flickpulse/backend/db
 
     adminer:
       container_name: flickpulse_adminer
@@ -28,6 +30,7 @@ services:
 
     backend:
       container_name: flickpulse_backend
+      # command: ./scripts/init-db.sh
       build:
         context: .
         dockerfile: Dockerfile
@@ -59,3 +62,6 @@ services:
         - MYSQL_USER=${MYSQL_USER}
         - MYSQL_PASSWORD=${MYSQL_PASSWORD}
         - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+
+volumes:
+  mariadb_data:

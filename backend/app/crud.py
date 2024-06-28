@@ -32,17 +32,24 @@ def update_user(*, session: Session, db_user: User, user_in: UserUpdate) -> Any:
 
 def get_user_by_email(*, session: Session, email: str) -> User | None:
     statement = select(User).where(User.email == email)
-    session_user = session.exec(statement).first()
+    session_user = session.execute(statement).first()
+    return session_user
+
+
+def get_user_by_id(*, session: Session, id: str) -> User | None:
+    statement = select(User).where(User.id == id)
+    session_user = session.execute(statement).first()
     return session_user
 
 
 def authenticate(*, session: Session, email: str, password: str) -> User | None:
     db_user = get_user_by_email(session=session, email=email)
-    if not db_user:
+    if not db_user or not db_user[0]:
         return None
-    if not verify_password(password, db_user.hashed_password):
+    user = db_user[0]
+    if not verify_password(password, user.hashed_password):
         return None
-    return db_user
+    return user
 
 
 def create_medialike(*, session: Session, medialike_in: MediaLikeCreate, owner_id: int) -> MediaLike:

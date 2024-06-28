@@ -1,8 +1,12 @@
 import os
 from logging.config import fileConfig
+from dotenv import load_dotenv
 
 from alembic import context
 from sqlalchemy import engine_from_config, pool
+
+# Charge les variables d'environnement depuis le fichier .env
+load_dotenv()
 
 
 # this is the Alembic Config object, which provides
@@ -29,12 +33,15 @@ target_metadata = SQLModel.metadata
 
 
 def get_url():
-    user = os.getenv("MYSQL_USER", "flickpulse")
-    password = os.getenv("MYSQL_PASSWORD", "flickpulse")
-    server = os.getenv("MYSQL_SERVER", "db")
-    port = os.getenv("MYSQL_PORT", "3306")
-    db = os.getenv("MYSQL_DATABASE", "flickpulse")
-    return f"mysql+mysqlconnector://{user}:{password}@{server}:{port}/{db}"
+    if os.getenv("TESTING"):
+        return "sqlite:///./app/tests/data/test.db"
+    else:
+        user = os.getenv("MYSQL_USER")
+        password = os.getenv("MYSQL_PASSWORD")
+        server = os.getenv("MYSQL_SERVER")
+        port = os.getenv("MYSQL_PORT")
+        db = os.getenv("MYSQL_DATABASE")
+        return f"mysql+mysqlconnector://{user}:{password}@{server}:{port}/{db}"
 
 
 def run_migrations_offline() -> None:
